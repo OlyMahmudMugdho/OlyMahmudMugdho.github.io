@@ -120,6 +120,14 @@
         {
           "title": "Binary Tree Level Order Traversal",
           "slug": "neetcode-150/binary-tree-level-order-traversal"
+        },
+        {
+          "title": "Binary Tree Right Side View",
+          "slug": "neetcode-150/binary-tree-right-side-view"
+        },
+        {
+          "title": "Count Good Nodes in Binary Tree",
+          "slug": "neetcode-150/count-good-nodes-in-binary-tree"
         }
       ]
     }

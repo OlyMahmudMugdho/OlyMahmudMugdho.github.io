@@ -1,0 +1,127 @@
+{
+  "title": "NeetCode 150: DSA & Coding Interview Prep",
+  "description": "A structured, beginner-friendly guide to core Data Structures and Algorithms problems from NeetCode 150, with step-by-step dry runs, Python solutions, and Bengali translations.",
+  "level": "Beginner to Intermediate",
+  "tags": ["dsa", "algorithms", "python", "interview"],
+  "units": [
+    {
+      "id": "arrays-hashing-two-pointers",
+      "title": "Unit 1: Arrays, Hashing & Two Pointers",
+      "description": "Master hash maps, frequency signatures, sets, and two-pointer techniques.",
+      "lessons": [
+        {
+          "title": "Group Anagrams",
+          "slug": "neetcode-150/group-anagrams"
+        },
+        {
+          "title": "Top K Frequent Elements",
+          "slug": "neetcode-150/top-k-frequent-elements"
+        },
+        {
+          "title": "Valid Sudoku",
+          "slug": "neetcode-150/valid-sudoku"
+        },
+        {
+          "title": "Longest Consecutive Sequence",
+          "slug": "neetcode-150/longest-consecutive-sequence"
+        },
+        {
+          "title": "Container With Most Water",
+          "slug": "neetcode-150/container-with-most-water"
+        }
+      ]
+    },
+    {
+      "id": "sliding-window",
+      "title": "Unit 2: Sliding Window",
+      "description": "Solve subarray and substring problems in linear O(n) time.",
+      "lessons": [
+        {
+          "title": "Best Time to Buy and Sell Stock",
+          "slug": "neetcode-150/best-time-to-buy-and-sell-stock"
+        },
+        {
+          "title": "Longest Substring Without Repeating Characters",
+          "slug": "neetcode-150/longest-substring-without-repeating-characters"
+        }
+      ]
+    },
+    {
+      "id": "stack",
+      "title": "Unit 3: Stack",
+      "description": "Use LIFO stacks and monotonic stacks for parsing, matching, and next-greater problems.",
+      "lessons": [
+        {
+          "title": "Valid Parentheses",
+          "slug": "neetcode-150/valid-parentheses"
+        },
+        {
+          "title": "Min Stack",
+          "slug": "neetcode-150/min-stack"
+        },
+        {
+          "title": "Evaluate Reverse Polish Notation",
+          "slug": "neetcode-150/evaluate-reverse-polish-notation"
+        },
+        {
+          "title": "Daily Temperatures",
+          "slug": "neetcode-150/daily-temperatures"
+        },
+        {
+          "title": "Car Fleet",
+          "slug": "neetcode-150/car-fleet"
+        }
+      ]
+    },
+    {
+      "id": "linked-list",
+      "title": "Unit 4: Linked List",
+      "description": "Work with singly linked lists, cycle detection, in-place reordering, and node removal.",
+      "lessons": [
+        {
+          "title": "Merge Two Sorted Lists",
+          "slug": "neetcode-150/merge-two-sorted-lists"
+        },
+        {
+          "title": "Linked List Cycle",
+          "slug": "neetcode-150/linked-list-cycle"
+        },
+        {
+          "title": "Reorder List",
+          "slug": "neetcode-150/reorder-list"
+        },
+        {
+          "title": "Remove Nth Node From End of List",
+          "slug": "neetcode-150/remove-nth-node-from-end-of-list"
+        },
+        {
+          "title": "Add Two Numbers",
+          "slug": "neetcode-150/add-two-numbers"
+        }
+      ]
+    },
+    {
+      "id": "trees",
+      "title": "Unit 5: Trees",
+      "description": "Build intuition for DFS recursion, BST properties, and BFS level-order traversal.",
+      "lessons": [
+        {
+          "title": "Balanced Binary Tree",
+          "slug": "neetcode-150/balanced-binary-tree"
+        },
+        {
+          "title": "Subtree of Another Tree",
+          "slug": "neetcode-150/subtree-of-another-tree"
+        },
+        {
+          "title": "Lowest Common Ancestor of a Binary Search Tree",
+          "slug": "neetcode-150/lowest-common-ancestor-of-a-binary-search-tree"
+        },
+        {
+          "title": "Binary Tree Level Order Traversal",
+          "slug": "neetcode-150/binary-tree-level-order-traversal"
+        }
+      ]
+    }
+  ]
+}

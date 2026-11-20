@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from "react"
 import type { Post, PostLang } from "@/lib/blog"
+import type { PostCourseContext } from "@/lib/courses"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { CalendarIcon, ClockIcon, UserIcon, ChevronLeft, Languages } from "lucide-react"
+import { CalendarIcon, ClockIcon, UserIcon, ChevronLeft, ChevronRight, Languages, GraduationCap } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { format } from "date-fns"
@@ -12,9 +13,10 @@ import { format } from "date-fns"
 interface BlogPostViewProps {
     enPost: Post
     bnPost?: Post | null
+    courseContext?: PostCourseContext | null
 }
 
-export function BlogPostView({ enPost, bnPost }: BlogPostViewProps) {
+export function BlogPostView({ enPost, bnPost, courseContext }: BlogPostViewProps) {
     const [lang, setLang] = useState<PostLang>("en")
 
     useEffect(() => {
@@ -80,6 +82,26 @@ export function BlogPostView({ enPost, bnPost }: BlogPostViewProps) {
             </div>
 
             <article lang={lang}>
+                {courseContext && (
+                    <div className="mb-8 rounded-lg border bg-muted/30 p-4 flex flex-wrap items-center justify-between gap-3 text-sm">
+                        <div className="flex items-center gap-2 min-w-0">
+                            <GraduationCap className="h-4 w-4 text-primary shrink-0" />
+                            <div className="truncate">
+                                <Link
+                                    href={`/courses/${courseContext.courseSlug}`}
+                                    className="font-semibold hover:text-primary transition-colors"
+                                >
+                                    {courseContext.courseTitle}
+                                </Link>
+                                <span className="text-muted-foreground"> · {courseContext.unitTitle}</span>
+                            </div>
+                        </div>
+                        <Badge variant="outline">
+                            Lesson {courseContext.lessonNumber} of {courseContext.totalLessons}
+                        </Badge>
+                    </div>
+                )}
+
                 <header className="mb-10 text-center">
                     <Badge variant="secondary" className="mb-4">
                         {post.category}
@@ -140,7 +162,35 @@ export function BlogPostView({ enPost, bnPost }: BlogPostViewProps) {
             </article>
 
             <div className="mt-16 pt-8 border-t">
-                {/* Related posts logic can go here */}
+                {courseContext && (
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+                        {courseContext.prevLesson ? (
+                            <Link href={`/blog/${courseContext.prevLesson.slug}`} className="flex-1">
+                                <Button variant="outline" className="w-full justify-start h-auto py-3 px-4">
+                                    <ChevronLeft className="mr-2 h-4 w-4 shrink-0" />
+                                    <div className="text-left min-w-0">
+                                        <div className="text-xs text-muted-foreground">Previous Lesson</div>
+                                        <div className="font-medium truncate">{courseContext.prevLesson.title}</div>
+                                    </div>
+                                </Button>
+                            </Link>
+                        ) : (
+                            <div className="flex-1" />
+                        )}
+
+                        {courseContext.nextLesson && (
+                            <Link href={`/blog/${courseContext.nextLesson.slug}`} className="flex-1">
+                                <Button variant="outline" className="w-full justify-end h-auto py-3 px-4">
+                                    <div className="text-right min-w-0">
+                                        <div className="text-xs text-muted-foreground">Next Lesson</div>
+                                        <div className="font-medium truncate">{courseContext.nextLesson.title}</div>
+                                    </div>
+                                    <ChevronRight className="ml-2 h-4 w-4 shrink-0" />
+                                </Button>
+                            </Link>
+                        )}
+                    </div>
+                )}
             </div>
         </div>
     )

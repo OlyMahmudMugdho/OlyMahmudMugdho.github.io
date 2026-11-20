@@ -1,4 +1,5 @@
 import { getPostBySlug, getPostSlugs, getAvailableLanguages } from "@/lib/blog"
+import { getCourseContextForPost } from "@/lib/courses"
 import { notFound } from "next/navigation"
 import { BlogPostView } from "@/components/blog/blog-post-view"
 
@@ -30,9 +31,10 @@ export default async function PostPage({ params }: PostPageProps) {
     }
 
     const availableLangs = getAvailableLanguages(slug)
-    const bnPost = availableLangs.includes("bn")
-        ? await getPostBySlug(slug, "bn")
-        : null
+    const [bnPost, courseContext] = await Promise.all([
+        availableLangs.includes("bn") ? getPostBySlug(slug, "bn") : Promise.resolve(null),
+        getCourseContextForPost(slug),
+    ])
 
-    return <BlogPostView enPost={enPost} bnPost={bnPost} />
+    return <BlogPostView enPost={enPost} bnPost={bnPost} courseContext={courseContext} />
 }

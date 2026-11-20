@@ -31,6 +31,7 @@ toRemove = length - n
 ```
 
 এবার দুটো কেস হতে পারে:
+
 - যদি `toRemove == 0` হয়, তার মানে একদম প্রথম নোড (`head`)-টাই বাদ পড়বে! সেক্ষেত্রে সোজা `head.next` রিটার্ন করে দিলেই হয়।
 - নাহলে `toRemove - 1` নম্বর নোডটার কাছে গিয়ে দাঁড়াতে হবে, আর ওর পরের নোডটাকে টপকে `temp.next = temp.next.next` করে দিতে হবে। ব্যাস, মাঝের নোডটা গায়েব!
 
@@ -38,11 +39,11 @@ toRemove = length - n
 
 # অ্যালগরিদম
 
-১. `head` খালি (`None`) হলে `None` রিটার্ন করি।
-২. পুরো লিস্ট ঘুরে মোট নোড সংখ্যা `length` গুনে নিই।
-৩. `toRemove = length - n` হিসাব করি। যদি `toRemove == 0` হয়, তবে `head.next` রিটার্ন করি।
-৪. নাহলে `head` থেকে `toRemove - 1` ঘর এগিয়ে `temp`-এ থামি।
-৫. `temp.next = temp.next.next` করে `head` রিটার্ন করি।
+1. `head` খালি (`None`) হলে `None` রিটার্ন করি।
+2. পুরো লিস্ট ঘুরে মোট নোড সংখ্যা `length` গুনে নিই।
+3. `toRemove = length - n` হিসাব করি। যদি `toRemove == 0` হয়, তবে `head.next` রিটার্ন করি।
+4. নাহলে `head` থেকে `toRemove - 1` ঘর এগিয়ে `temp`-এ থামি।
+5. `temp.next = temp.next.next` করে `head` রিটার্ন করি।
 
 ```text
 function removeNthFromEnd(head, n)

@@ -10,9 +10,13 @@ import { SkillsSection } from "@/components/sections/skills"
 import { NewsletterSection } from "@/components/sections/newsletter"
 import { ContactSection } from "@/components/sections/contact"
 import { ArticlesSection } from "@/components/sections/articles"
+import { CoursesSection } from "@/components/sections/courses"
 import { Footer } from "@/components/sections/footer"
+import { getAllCourses } from "@/lib/courses"
 
 export default function Home() {
+  const courses = getAllCourses()
+
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
@@ -21,6 +25,7 @@ export default function Home() {
       <ExperienceSection />
       <EducationSection />
       <ProjectsSection />
+      <CoursesSection courses={courses} />
       <ArticlesSection />
       <CertificationsSection />
       <BadgesSection />

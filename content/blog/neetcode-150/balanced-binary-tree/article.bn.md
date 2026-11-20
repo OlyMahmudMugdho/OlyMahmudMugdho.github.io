@@ -23,9 +23,10 @@ author: "M. Oly Mahmud"
 # সহজভাবে চিন্তা করি
 
 যেকোনো একটা নোড `root`-এর দিক থেকে ভাবলে ট্রি ব্যালেন্সড হওয়ার জন্য তিনটা কথা সত্যি হতে হবে:
-১. `root`-এর বাম সাবট্রি আর ডান সাবট্রির উচ্চতার পার্থক্য `<= 1` (`abs(lefth - righth) <= 1`)।
-২. `root.left` নিজে একটা ব্যালেন্সড ট্রি।
-৩. `root.right` নিজে একটা ব্যালেন্সড ট্রি।
+
+1. `root`-এর বাম সাবট্রি আর ডান সাবট্রির উচ্চতার পার্থক্য `<= 1` (`abs(lefth - righth) <= 1`)।
+2. `root.left` নিজে একটা ব্যালেন্সড ট্রি।
+3. `root.right` নিজে একটা ব্যালেন্সড ট্রি।
 
 আর নোড যদি খালি (`None`) হয়, তাহলে তো কোনো ঝামেলাই নেই—ওটা ব্যালেন্সড (`True`)!
 
@@ -33,9 +34,9 @@ author: "M. Oly Mahmud"
 
 # অ্যালগরিদম
 
-১. `root` `None` হলে `True` রিটার্ন করি।
-২. `getHeight` ফাংশন দিয়ে `lefth = getHeight(root.left)` আর `righth = getHeight(root.right)` বের করি।
-৩. চেক করি `abs(lefth - righth) <= 1` এবং `isBalanced(root.left)` এবং `isBalanced(root.right)`—তিনটাই `True` কি না।
+1. `root` `None` হলে `True` রিটার্ন করি।
+2. `getHeight` ফাংশন দিয়ে `lefth = getHeight(root.left)` আর `righth = getHeight(root.right)` বের করি।
+3. চেক করি `abs(lefth - righth) <= 1` এবং `isBalanced(root.left)` এবং `isBalanced(root.right)`—তিনটাই `True` কি না।
 
 ```text
 function isBalanced(root)

@@ -32,12 +32,12 @@ author: "M. Oly Mahmud"
 
 # অ্যালগরিদম
 
-১. প্রথম দিনের দামকে ধরে নিই `min_price = prices[0]` এবং `max_profit = 0`।
-২. দ্বিতীয় দিন থেকে শেষ দিন পর্যন্ত (`i = 1` থেকে) লুপ চালাই:
+1. প্রথম দিনের দামকে ধরে নিই `min_price = prices[0]` এবং `max_profit = 0`।
+2. দ্বিতীয় দিন থেকে শেষ দিন পর্যন্ত (`i = 1` থেকে) লুপ চালাই:
    - আজকের দাম আরও কম হলে `min_price` আপডেট করি: `min_price = min(price, min_price)`।
    - আজ বিক্রি করলে লাভ হতো `profit = price - min_price`।
    - এটা আগের চেয়ে বেশি হলে `max_profit = max(profit, max_profit)` আপডেট করি।
-৩. সবশেষে `max_profit` রিটার্ন করি।
+3. সবশেষে `max_profit` রিটার্ন করি।
 
 ```text
 function maxProfit(prices)

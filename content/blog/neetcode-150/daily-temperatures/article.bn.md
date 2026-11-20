@@ -32,12 +32,12 @@ author: "M. Oly Mahmud"
 
 # অ্যালগরিদম
 
-১. খালি `stack` আর সবগুলো `0` দিয়ে `res = [0] * len(temperatures)` তৈরি করি।
-২. প্রতিটা দিন `i` (`0` থেকে শেষ পর্যন্ত)-এর জন্য:
+1. খালি `stack` আর সবগুলো `0` দিয়ে `res = [0] * len(temperatures)` তৈরি করি।
+2. প্রতিটা দিন `i` (`0` থেকে শেষ পর্যন্ত)-এর জন্য:
    - যতক্ষণ `stack` খালি নয় এবং `temperatures[stack[-1]] < temperatures[i]`:
      - `j = stack.pop()` করি এবং `res[j] = i - j` বসিয়ে দিই।
    - এরপর `i`-কে `stack`-এ ঢুকিয়ে দিই (এবার `i` নিজের চেয়ে গরম দিনের অপেক্ষায় থাকবে)।
-৩. শেষে `res` রিটার্ন করি।
+3. শেষে `res` রিটার্ন করি।
 
 ```text
 function dailyTemperatures(temperatures)

@@ -30,9 +30,9 @@ author: "M. Oly Mahmud"
 
 # অ্যালগরিদম
 
-১. লিংকড লিস্ট ঘুরে সব নোডের মান `num_arrays`-এ জমা করি।
-২. `p1 = 0`, `p2 = len(num_arrays) - 1`, আর `temp = head` নিই।
-৩. যতক্ষণ `p1 <= p2`:
+1. লিংকড লিস্ট ঘুরে সব নোডের মান `num_arrays`-এ জমা করি।
+2. `p1 = 0`, `p2 = len(num_arrays) - 1`, আর `temp = head` নিই।
+3. যতক্ষণ `p1 <= p2`:
    - `temp.val = num_arrays[p1]` বসিয়ে `temp = temp.next` করি (যদি `temp` `None` হয়, ওখানেই `return`)।
    - `temp.val = num_arrays[p2]` বসিয়ে `temp = temp.next` করি (`None` হলে `return`)।
    - `p1 += 1` এবং `p2 -= 1` করি।

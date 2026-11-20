@@ -28,11 +28,11 @@ author: "M. Oly Mahmud"
 
 # অ্যালগরিদম
 
-১. একটা খালি সেট `visited = set()` তৈরি করি।
-২. যতক্ষণ `head is not None`:
+1. একটা খালি সেট `visited = set()` তৈরি করি।
+2. যতক্ষণ `head is not None`:
    - যদি `head` আগে থেকেই `visited`-এ থাকে, তার মানে সাইকেল আছে—`True` রিটার্ন করি।
    - না থাকলে `visited.add(head)` করে `head = head.next`-এ চলে যাই।
-৩. লুপ শেষ হয়ে `None`-এ পৌঁছালে `False` রিটার্ন করি।
+3. লুপ শেষ হয়ে `None`-এ পৌঁছালে `False` রিটার্ন করি।
 
 ```text
 function hasCycle(head)

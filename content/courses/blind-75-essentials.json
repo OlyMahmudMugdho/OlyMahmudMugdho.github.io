@@ -1,0 +1,38 @@
+{
+  "title": "Blind 75: Core Tree & DP Foundations",
+  "description": "Essential tree recursion and dynamic programming problems from the Blind 75 list, broken down with visual tree diagrams and step-by-step dry runs.",
+  "level": "Beginner",
+  "tags": ["blind-75", "trees", "dynamic-programming", "python"],
+  "units": [
+    {
+      "id": "dp-basics",
+      "title": "Unit 1: Dynamic Programming Basics",
+      "description": "Understand overlapping subproblems and recurrence relations.",
+      "lessons": [
+        {
+          "title": "Climbing Stairs",
+          "slug": "blind-75/climbing-stairs"
+        }
+      ]
+    },
+    {
+      "id": "binary-tree-fundamentals",
+      "title": "Unit 2: Binary Tree Fundamentals",
+      "description": "Build confidence with recursive tree traversal and base cases.",
+      "lessons": [
+        {
+          "title": "Invert Binary Tree",
+          "slug": "blind-75/invert-binary-tree"
+        },
+        {
+          "title": "Maximum Depth of Binary Tree",
+          "slug": "blind-75/maximum-depth-of-binary-tree"
+        },
+        {
+          "title": "Same Tree",
+          "slug": "blind-75/same-tree"
+        }
+      ]
+    }
+  ]
+}

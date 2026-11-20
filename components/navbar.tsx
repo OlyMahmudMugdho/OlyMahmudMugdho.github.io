@@ -17,6 +17,7 @@ export function Navbar({ className }: { className?: string }) {
     { name: "Projects", href: "/#projects" },
     { name: "Articles", href: "/#articles" },
     { name: "Certifications", href: "/#certifications" },
+    { name: "Courses", href: "/courses" },
     { name: "Blog", href: "/blog" },
     { name: "Newsletter", href: "/#newsletter" },
     { name: "Skills", href: "/#skills" },

@@ -47,13 +47,13 @@ nums = [100, 4, 200, 1, 3, 2]
 
 # অ্যালগরিদম
 
-১. সব সংখ্যা দিয়ে `nums_set = set(nums)` তৈরি করি এবং `longest = 0` ধরি।
-২. `nums_set`-এর প্রতিটা `num`-এর জন্য দেখি:
+1. সব সংখ্যা দিয়ে `nums_set = set(nums)` তৈরি করি এবং `longest = 0` ধরি।
+2. `nums_set`-এর প্রতিটা `num`-এর জন্য দেখি:
    - যদি `(num - 1)` সেটে থাকে, তাহলে এটা চেইনের মাঝখানের সংখ্যা—সোজা `continue` করে পরেরটায় চলে যাই।
    - আর যদি `(num - 1)` না থাকে, তাহলে এটাই শুরু! `current_longest = 1` এবং `current_num = num` নিই।
    - এবার `while (current_num + 1) in nums_set:` লুপ চালিয়ে পরের সংখ্যাগুলো খুঁজতে থাকি আর দৈর্ঘ্য `1` করে বাড়াই।
    - লুপ শেষে `longest = max(longest, current_longest)` আপডেট করি।
-৩. সবশেষে `longest` রিটার্ন করি।
+3. সবশেষে `longest` রিটার্ন করি।
 
 ```text
 function longestConsecutive(nums)

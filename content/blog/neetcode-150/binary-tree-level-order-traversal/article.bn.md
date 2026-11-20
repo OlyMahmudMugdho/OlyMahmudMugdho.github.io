@@ -32,15 +32,15 @@ author: "M. Oly Mahmud"
 
 # অ্যালগরিদম
 
-১. `root` খালি (`None`) হলে খালি লিস্ট `[]` রিটার্ন করি।
-২. `result = []` এবং `queue = deque()` নিয়ে `root`-কে `queue`-তে রাখি।
-৩. যতক্ষণ `queue` খালি না হয়:
+1. `root` খালি (`None`) হলে খালি লিস্ট `[]` রিটার্ন করি।
+2. `result = []` এবং `queue = deque()` নিয়ে `root`-কে `queue`-তে রাখি।
+3. যতক্ষণ `queue` খালি না হয়:
    - বর্তমান লেভেলের জন্য খালি লিস্ট `level_values = []` নিই।
    - `range(len(queue))` বার লুপ চালাই:
      - `node = queue.popleft()` করে `level_values`-এ `node.val` যোগ করি।
      - `node.left` থাকলে কিউতে যোগ করি, `node.right` থাকলে কিউতে যোগ করি।
    - `result.append(level_values)` করি।
-৪. শেষে `result` রিটার্ন করি।
+4. শেষে `result` রিটার্ন করি।
 
 ```text
 function levelOrder(root)

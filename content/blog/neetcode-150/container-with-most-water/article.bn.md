@@ -34,12 +34,12 @@ author: "M. Oly Mahmud"
 
 # অ্যালগরিদম
 
-১. `left = 0`, `right = len(height) - 1`, আর `max_container = 0` নিই।
-২. যতক্ষণ `left < right`:
+1. `left = 0`, `right = len(height) - 1`, আর `max_container = 0` নিই।
+2. যতক্ষণ `left < right`:
    - `area = min(height[left], height[right]) * (right - left)` হিসাব করি।
    - `max_container = max(area, max_container)` আপডেট করি।
    - `height[left] < height[right]` হলে `left += 1`, নাহলে `right -= 1`।
-৩. `max_container` রিটার্ন করি।
+3. `max_container` রিটার্ন করি।
 
 ```text
 function maxArea(height)

@@ -22,8 +22,8 @@ author: "M. Oly Mahmud"
 
 আপনি যদি আগে **Same Tree** সমস্যাটা করে থাকেন, তাহলে এটা একদমই সহজ! এখানে আমাদের শুধু দুটো প্রশ্ন করতে হবে:
 
-১. এখন যে নোড `root`-এ দাঁড়িয়ে আছি, এখান থেকেই কি `subRoot`-এর সাথে হুবহু মিলে যাচ্ছে? (`isSameTree(root, subRoot)`)
-২. যদি না মেলে, তাহলে `subRoot` কি `root`-এর বাম পাশে অথবা ডান পাশে লুকিয়ে আছে?
+1. এখন যে নোড `root`-এ দাঁড়িয়ে আছি, এখান থেকেই কি `subRoot`-এর সাথে হুবহু মিলে যাচ্ছে? (`isSameTree(root, subRoot)`)
+2. যদি না মেলে, তাহলে `subRoot` কি `root`-এর বাম পাশে অথবা ডান পাশে লুকিয়ে আছে?
 
 ব্যাস! পুরো `root` ট্রি ঘুরে প্রতিটা নোডে `isSameTree` চালিয়ে দিলেই উত্তর চলে আসে।
 
@@ -31,9 +31,9 @@ author: "M. Oly Mahmud"
 
 # অ্যালগরিদম
 
-১. `root` আর `subRoot` দুটোই `None` হলে `True`; যেকোনো একটা `None` হলে `False`।
-২. যদি `self.isSameTree(root, subRoot)` সত্য হয়, তাহলে সাথে সাথে `True` রিটার্ন করি।
-৩. নাহলে বাম আর ডান সাবট্রিতে খুঁজি: `self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)`।
+1. `root` আর `subRoot` দুটোই `None` হলে `True`; যেকোনো একটা `None` হলে `False`।
+2. যদি `self.isSameTree(root, subRoot)` সত্য হয়, তাহলে সাথে সাথে `True` রিটার্ন করি।
+3. নাহলে বাম আর ডান সাবট্রিতে খুঁজি: `self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)`।
 
 ```text
 function isSubtree(root, subRoot)

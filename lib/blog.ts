@@ -9,6 +9,8 @@ import readingTime from 'reading-time';
 
 const postsDirectory = path.join(process.cwd(), 'content/blog');
 
+export type PostLang = 'en' | 'bn';
+
 export interface PostMeta {
     title: string;
     slug: string;
@@ -21,6 +23,7 @@ export interface PostMeta {
     coverImage?: string;
     author: string;
     readingTime?: string;
+    availableLanguages?: PostLang[];
 }
 
 export interface Post extends PostMeta {
@@ -39,7 +42,7 @@ export function getPostSlugs() {
             if (fs.statSync(path.join(dirPath, file)).isDirectory()) {
                 arrayOfFiles = getAllFiles(path.join(dirPath, file), arrayOfFiles);
             } else {
-                if (file.endsWith('.md')) {
+                if (file.endsWith('.md') && !file.endsWith('.bn.md')) {
                     const relativePath = path.relative(postsDirectory, path.join(dirPath, file)).replace(/\\/g, '/');
                     const cleanSlug = relativePath.replace(/\.md$/, '').replace(/\/article$/, '');
                     arrayOfFiles.push(cleanSlug);
@@ -53,11 +56,26 @@ export function getPostSlugs() {
     return getAllFiles(postsDirectory);
 }
 
-export async function getPostBySlug(slug: string): Promise<Post> {
+export function getAvailableLanguages(slug: string): PostLang[] {
+    const cleanSlug = slug.replace(/\.md$/, '').replace(/\/article$/, '');
+    const langs: PostLang[] = ['en'];
+    const bnPath = path.join(postsDirectory, `${cleanSlug}/article.bn.md`);
+    if (fs.existsSync(bnPath)) {
+        langs.push('bn');
+    }
+    return langs;
+}
+
+export async function getPostBySlug(slug: string, lang: PostLang = 'en'): Promise<Post> {
     const cleanSlug = slug.replace(/\.md$/, '').replace(/\/article$/, '');
 
+    const bnPath = path.join(postsDirectory, `${cleanSlug}/article.bn.md`);
     let fullPath = path.join(postsDirectory, `${cleanSlug}/article.md`);
     let postFolder = cleanSlug;
+
+    if (lang === 'bn' && fs.existsSync(bnPath)) {
+        fullPath = bnPath;
+    }
 
     if (!fs.existsSync(fullPath)) {
         fullPath = path.join(postsDirectory, `${cleanSlug}.md`);
@@ -119,6 +137,7 @@ export async function getPostBySlug(slug: string): Promise<Post> {
         slug: cleanSlug,
         content: contentHtml,
         readingTime: stats.text,
+        availableLanguages: getAvailableLanguages(cleanSlug),
     } as Post;
 }
 

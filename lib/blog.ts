@@ -95,11 +95,14 @@ export async function getPostBySlug(slug: string, lang: PostLang = 'en'): Promis
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
 
+    // Strip a leading H1 heading from markdown body so it doesn't duplicate the page header title
+    const cleanedContent = content.replace(/^\s*#\s+[^\r\n]+(\r?\n)+/, '');
+
     const processedContent = await remark()
         .use(remarkRehype, { allowDangerousHtml: true })
         .use(rehypeHighlight)
         .use(rehypeStringify, { allowDangerousHtml: true })
-        .process(content);
+        .process(cleanedContent);
     let contentHtml = processedContent.toString();
 
     // Rewrite relative image paths in the HTML content

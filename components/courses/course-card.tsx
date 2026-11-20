@@ -1,34 +1,12 @@
 import Link from "next/link"
 import { Bookmark, Code2, GitBranch, Layers, Terminal, Cpu } from "lucide-react"
 import type { CourseSummary } from "@/lib/courses"
+import { CARD_THEMES } from "@/lib/card-themes"
 
 interface CourseCardProps {
     course: CourseSummary
     index?: number
 }
-
-const CARD_THEMES = [
-    {
-        bannerHex: "#5c3224",
-        medallionHex: "#d4b0a2",
-        iconHex: "#3b1f16",
-    },
-    {
-        bannerHex: "#0d5449",
-        medallionHex: "#a7c2bc",
-        iconHex: "#08362f",
-    },
-    {
-        bannerHex: "#3d3158",
-        medallionHex: "#beb3d4",
-        iconHex: "#251c38",
-    },
-    {
-        bannerHex: "#223b52",
-        medallionHex: "#adc2d6",
-        iconHex: "#142535",
-    },
-]
 
 const CARD_ICONS = [Code2, GitBranch, Terminal, Cpu, Layers]
 

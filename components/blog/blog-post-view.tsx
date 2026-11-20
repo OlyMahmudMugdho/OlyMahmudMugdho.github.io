@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import type { Post, PostLang } from "@/lib/blog"
 import type { PostCourseContext } from "@/lib/courses"
+import { getPostVisual } from "@/lib/card-themes"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { CalendarIcon, ClockIcon, UserIcon, ChevronLeft, ChevronRight, Languages, GraduationCap } from "lucide-react"
@@ -42,6 +43,7 @@ export function BlogPostView({ enPost, bnPost, courseContext }: BlogPostViewProp
     }
 
     const post = lang === "bn" && bnPost ? bnPost : enPost
+    const { theme } = getPostVisual(enPost.slug)
 
     return (
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
@@ -102,14 +104,20 @@ export function BlogPostView({ enPost, bnPost, courseContext }: BlogPostViewProp
                     </div>
                 )}
 
-                <header className="mb-10 text-center">
-                    <Badge variant="secondary" className="mb-4">
+                <header
+                    className="mb-10 rounded-xl border border-black/15 px-6 py-8 text-center text-white"
+                    style={{ backgroundColor: theme.bannerHex }}
+                >
+                    <Badge
+                        variant="secondary"
+                        className="mb-4 bg-black/25 text-white border border-white/15 hover:bg-black/35"
+                    >
                         {post.category}
                     </Badge>
-                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white">
                         {post.title}
                     </h1>
-                    <div className="flex flex-wrap items-center justify-center gap-4 text-muted-foreground text-sm">
+                    <div className="flex flex-wrap items-center justify-center gap-4 text-white/80 text-sm mb-6">
                         <div className="flex items-center gap-1">
                             <CalendarIcon className="h-4 w-4" />
                             <time dateTime={post.date}>
@@ -133,6 +141,19 @@ export function BlogPostView({ enPost, bnPost, courseContext }: BlogPostViewProp
                             <span>{post.author}</span>
                         </div>
                     </div>
+
+                    <div className="flex flex-wrap gap-2 justify-center">
+                        {post.tags.map((tag) => (
+                            <Link key={tag} href={`/blog?tag=${tag}`}>
+                                <Badge
+                                    variant="outline"
+                                    className="bg-black/20 border-white/20 text-white/90 hover:bg-black/35"
+                                >
+                                    #{tag}
+                                </Badge>
+                            </Link>
+                        ))}
+                    </div>
                 </header>
 
                 {post.coverImage && (
@@ -146,14 +167,6 @@ export function BlogPostView({ enPost, bnPost, courseContext }: BlogPostViewProp
                         />
                     </div>
                 )}
-
-                <div className="flex flex-wrap gap-2 mb-10 justify-center">
-                    {post.tags.map((tag) => (
-                        <Link key={tag} href={`/blog?tag=${tag}`}>
-                            <Badge variant="outline">#{tag}</Badge>
-                        </Link>
-                    ))}
-                </div>
 
                 <div
                     className="prose prose-lg prose-slate dark:prose-invert max-w-none prose-headings:font-bold prose-a:text-primary prose-img:rounded-none"

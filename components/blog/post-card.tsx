@@ -3,6 +3,7 @@ import Image from "next/image"
 import { format } from "date-fns"
 import { CalendarIcon, ClockIcon } from "lucide-react"
 import { PostMeta } from "@/lib/blog"
+import { getPostVisual } from "@/lib/card-themes"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -12,6 +13,8 @@ interface PostCardProps {
 }
 
 export function PostCard({ post }: PostCardProps) {
+    const { theme, emoji } = getPostVisual(post.slug)
+
     return (
         <Card className="flex flex-col h-full overflow-hidden rounded-none hover:shadow-lg transition-shadow duration-300 dark:bg-background/50">
             <Link href={`/blog/${post.slug}`} className="block relative aspect-video w-full overflow-hidden rounded-none group">
@@ -23,8 +26,22 @@ export function PostCard({ post }: PostCardProps) {
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                 ) : (
-                    <div className="w-full h-full bg-muted flex items-center justify-center">
-                        <span className="text-muted-foreground">No image</span>
+                    <div
+                        className="w-full h-full flex items-center justify-center"
+                        style={{ backgroundColor: theme.bannerHex }}
+                    >
+                        <div
+                            className="h-24 w-24 flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
+                            style={{
+                                backgroundColor: theme.medallionHex,
+                                clipPath:
+                                    "polygon(50% 0%, 75% 7%, 93% 25%, 100% 50%, 93% 75%, 75% 93%, 50% 100%, 25% 93%, 7% 75%, 0% 50%, 7% 25%, 25% 7%)",
+                            }}
+                        >
+                            <span className="text-4xl select-none" role="img" aria-label={post.title}>
+                                {emoji}
+                            </span>
+                        </div>
                     </div>
                 )}
                 <div className="absolute top-3 left-3">

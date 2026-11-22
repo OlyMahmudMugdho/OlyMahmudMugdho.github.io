@@ -128,6 +128,29 @@
         {
           "title": "Count Good Nodes in Binary Tree",
           "slug": "neetcode-150/count-good-nodes-in-binary-tree"
+        },
+        {
+          "title": "Validate Binary Search Tree",
+          "slug": "neetcode-150/validate-binary-search-tree"
+        },
+        {
+          "title": "Kth Smallest Element in a BST",
+          "slug": "neetcode-150/kth-smallest-element-in-a-bst"
+        }
+      ]
+    },
+    {
+      "id": "1d-dynamic-programming",
+      "title": "Unit 6: 1D Dynamic Programming",
+      "description": "Solve overlapping subproblems iteratively with 1D DP and rolling variables.",
+      "lessons": [
+        {
+          "title": "Climbing Stairs",
+          "slug": "neetcode-150/climbing-stairs"
+        },
+        {
+          "title": "Min Cost Climbing Stairs",
+          "slug": "neetcode-150/min-cost-climbing-stairs"
         }
       ]
     }

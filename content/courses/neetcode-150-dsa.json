@@ -153,6 +153,29 @@
           "slug": "neetcode-150/min-cost-climbing-stairs"
         }
       ]
+    },
+    {
+      "id": "backtracking",
+      "title": "Unit 7: Backtracking",
+      "description": "Explore decision trees systematically with choose, explore, and unchoose.",
+      "lessons": [
+        {
+          "title": "Subsets",
+          "slug": "neetcode-150/subsets"
+        },
+        {
+          "title": "Combination Sum",
+          "slug": "neetcode-150/combination-sum"
+        },
+        {
+          "title": "Combination Sum II",
+          "slug": "neetcode-150/combination-sum-ii"
+        },
+        {
+          "title": "Permutations",
+          "slug": "neetcode-150/permutations"
+        }
+      ]
     }
   ]
 }

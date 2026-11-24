@@ -1,5 +1,7 @@
+import type { Metadata } from "next"
 import { getAllCourses, getCourseBySlug, getCourseSlugs, type CourseDetail } from "@/lib/courses"
 import { getCourseVisual } from "@/components/courses/course-card"
+import { SITE_NAME, SITE_URL } from "@/lib/site"
 import { notFound } from "next/navigation"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -16,6 +18,34 @@ interface CoursePageProps {
 export async function generateStaticParams() {
     const slugs = getCourseSlugs()
     return slugs.map((slug) => ({ slug }))
+}
+
+export async function generateMetadata({ params }: CoursePageProps): Promise<Metadata> {
+    try {
+        const course = await getCourseBySlug(params.slug)
+        const url = `/courses/${course.slug}`
+        return {
+            title: course.title,
+            description: course.description,
+            keywords: course.tags,
+            alternates: {
+                canonical: url,
+            },
+            openGraph: {
+                type: "website",
+                url,
+                title: course.title,
+                description: course.description,
+            },
+            twitter: {
+                card: "summary",
+                title: course.title,
+                description: course.description,
+            },
+        }
+    } catch {
+        return { title: "Course Not Found" }
+    }
 }
 
 export default async function CourseDetailPage({ params }: CoursePageProps) {
@@ -37,8 +67,27 @@ export default async function CourseDetailPage({ params }: CoursePageProps) {
         u.lessons.some((l) => l.availableLanguages.includes("bn"))
     )
 
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        name: course.title,
+        description: course.description,
+        url: `${SITE_URL}/courses/${course.slug}`,
+        provider: {
+            "@type": "Person",
+            name: SITE_NAME,
+            url: SITE_URL,
+        },
+        ...(course.level ? { educationalLevel: course.level } : {}),
+        inLanguage: hasBengali ? ["en", "bn"] : ["en"],
+    }
+
     return (
         <div>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             {/* Full-bleed colored hero banner */}
             <section
                 className="text-white border-b border-black/15"

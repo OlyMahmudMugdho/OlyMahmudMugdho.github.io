@@ -1,6 +1,20 @@
+import type { Metadata } from "next"
 import { getAllCourses } from "@/lib/courses"
 import { CourseCard } from "@/components/courses/course-card"
 import { GraduationCap } from "lucide-react"
+
+export const metadata: Metadata = {
+    title: "Courses",
+    description: "Structured technical courses on networking, HTTP from TCP in Go, data structures, and algorithms.",
+    alternates: {
+        canonical: "/courses",
+    },
+    openGraph: {
+        title: "Courses | M. Oly Mahmud",
+        description: "Structured technical courses on networking, HTTP from TCP in Go, data structures, and algorithms.",
+        url: "/courses",
+    },
+}
 
 export default function CoursesPage() {
     const courses = getAllCourses()

@@ -1,6 +1,20 @@
+import type { Metadata } from "next"
 import { getAllPosts, getAllCategories, getAllTags, getFeaturedPosts } from "@/lib/blog"
 import { SearchBar } from "@/components/blog/search-bar"
 import { BlogListClient } from "@/components/blog/blog-list-client"
+
+export const metadata: Metadata = {
+    title: "Blog",
+    description: "Technical articles, tutorials, and guides on Go, networking, algorithms, software engineering, and DevOps.",
+    alternates: {
+        canonical: "/blog",
+    },
+    openGraph: {
+        title: "Blog | M. Oly Mahmud",
+        description: "Technical articles, tutorials, and guides on Go, networking, algorithms, software engineering, and DevOps.",
+        url: "/blog",
+    },
+}
 
 export default async function BlogPage() {
     const [allPostsMeta, categories, tags, featuredPosts] = await Promise.all([

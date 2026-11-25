@@ -53,7 +53,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="paper"
           enableSystem
           themes={['light', 'dark', 'paper']}
           disableTransitionOnChange

@@ -1,5 +1,5 @@
 ---
-title: "গ্রুপ অ্যানাগ্রামস (Group Anagrams)"
+title: "Group Anagrams"
 date: "2026-08-27"
 excerpt: "অক্ষরের ফ্রিকোয়েন্সি গুনে হ্যাশ ম্যাপের সাহায্যে কীভাবে অ্যানাগ্রামগুলোকে একসাথে গ্রুপ করা যায়, তার সহজ ও বাস্তবসম্মত ব্যাখ্যা।"
 category: "Coding"
@@ -9,7 +9,7 @@ coverImage: "https://res.cloudinary.com/dnmubeloc/image/upload/v1787811229/blog/
 author: "M. Oly Mahmud"
 ---
 
-# গ্রুপ অ্যানাগ্রামস (Group Anagrams)
+# Group Anagrams
 
 সমস্যার লিংক: https://leetcode.com/problems/group-anagrams
 

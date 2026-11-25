@@ -1,5 +1,5 @@
 ---
-title: "অ্যাড টু নাম্বারস (Add Two Numbers)"
+title: "Add Two Numbers"
 date: "2026-11-20"
 excerpt: "উল্টো ক্রমে লিংকড লিস্টে রাখা দুটো সংখ্যা যোগ করে ফলাফলটা আবার লিংকড লিস্ট বানিয়ে রিটার্ন করার সহজ উপায়।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# অ্যাড টু নাম্বারস (Add Two Numbers)
+# Add Two Numbers
 
 সমস্যার লিংক: https://leetcode.com/problems/add-two-numbers/
 

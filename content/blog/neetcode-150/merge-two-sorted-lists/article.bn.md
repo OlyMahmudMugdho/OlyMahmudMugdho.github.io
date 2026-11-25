@@ -1,5 +1,5 @@
 ---
-title: "মার্জ টু সর্টেড লিস্টস (Merge Two Sorted Lists)"
+title: "Merge Two Sorted Lists"
 date: "2026-11-20"
 excerpt: "দুটি সর্টেড সিঙ্গলি লিংকড লিস্টের মান তুলনা করে একটি সর্টেড লিংকড লিস্টে মিলিয়ে দেওয়ার সহজ ব্যাখ্যা।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# মার্জ টু সর্টেড লিস্টস (Merge Two Sorted Lists)
+# Merge Two Sorted Lists
 
 সমস্যার লিংক: https://leetcode.com/problems/merge-two-sorted-lists/
 

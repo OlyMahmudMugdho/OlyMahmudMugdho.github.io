@@ -1,5 +1,5 @@
 ---
-title: "ব্যালেন্সড বাইনারি ট্রি (Balanced Binary Tree)"
+title: "Balanced Binary Tree"
 date: "2026-11-20"
 excerpt: "প্রতিটি নোডের বাম ও ডান সাবট্রির উচ্চতার পার্থক্য সর্বোচ্চ ১ কি না তা যাচাই করে ট্রি ব্যালেন্সড কি না বের করার সহজ ব্যাখ্যা।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# ব্যালেন্সড বাইনারি ট্রি (Balanced Binary Tree)
+# Balanced Binary Tree
 
 সমস্যার লিংক: https://leetcode.com/problems/balanced-binary-tree/
 

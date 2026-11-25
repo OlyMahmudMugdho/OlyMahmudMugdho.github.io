@@ -1,5 +1,5 @@
 ---
-title: "ইভ্যালুয়েট রিভার্স পোলিশ নোটেশন (Evaluate Reverse Polish Notation)"
+title: "Evaluate Reverse Polish Notation"
 date: "2026-11-20"
 excerpt: "স্ট্যাক ব্যবহার করে পোস্টফিক্স (Reverse Polish Notation) অঙ্কের ফলাফল বের করার সহজ ও পরিষ্কার ব্যাখ্যা।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# ইভ্যালুয়েট রিভার্স পোলিশ নোটেশন (Evaluate Reverse Polish Notation)
+# Evaluate Reverse Polish Notation
 
 সমস্যার লিংক: https://leetcode.com/problems/evaluate-reverse-polish-notation/
 

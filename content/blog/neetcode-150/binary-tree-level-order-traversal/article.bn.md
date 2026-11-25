@@ -1,5 +1,5 @@
 ---
-title: "বাইনারি ট্রি লেভেল অর্ডার ট্র্যাভার্সাল (Binary Tree Level Order Traversal)"
+title: "Binary Tree Level Order Traversal"
 date: "2026-11-20"
 excerpt: "কিউ (Queue) এবং Breadth-First Search (BFS) দিয়ে বাইনারি ট্রি-কে ধাপে ধাপে ওপর থেকে নিচে ট্র্যাভার্স করার সহজ ব্যাখ্যা।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# বাইনারি ট্রি লেভেল অর্ডার ট্র্যাভার্সাল
+# Binary Tree Level Order Traversal
 
 সমস্যার লিংক: https://leetcode.com/problems/binary-tree-level-order-traversal/
 

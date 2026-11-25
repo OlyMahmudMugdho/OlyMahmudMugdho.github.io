@@ -1,5 +1,5 @@
 ---
-title: "ভ্যালিড সুডোকু (Valid Sudoku)"
+title: "Valid Sudoku"
 date: "2026-11-20"
 excerpt: "হ্যাশ সেটের সাহায্যে ৯x৯ সুডোকু বোর্ডের প্রতিটি সারি, কলাম এবং ৩x৩ বক্সে ডুপ্লিকেট আছে কি না তা যাচাই করার সহজ উপায়।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# ভ্যালিড সুডোকু (Valid Sudoku)
+# Valid Sudoku
 
 সমস্যার লিংক: https://leetcode.com/problems/valid-sudoku/
 

@@ -1,5 +1,5 @@
 ---
-title: "ডেইলি টেম্পারেচার্স (Daily Temperatures)"
+title: "Daily Temperatures"
 date: "2026-11-20"
 excerpt: "মনোটোনিক ডিক্রিজিং স্ট্যাকের সাহায্যে প্রতিটি দিনের পর কতদিন পর আরও গরম আবহাওয়া আসবে তা O(n) সময়ে বের করা।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# ডেইলি টেম্পারেচার্স (Daily Temperatures)
+# Daily Temperatures
 
 সমস্যার লিংক: https://leetcode.com/problems/daily-temperatures/
 

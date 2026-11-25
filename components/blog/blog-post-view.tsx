@@ -317,16 +317,16 @@ export function BlogPostView({ enPost, bnPost, courseContext }: BlogPostViewProp
                 )}
 
                 <header
-                    className="mb-10 rounded-xl border border-black/15 px-6 py-8 text-center text-white"
+                    className="mb-10 rounded-xl border border-black/15 px-6 py-6 text-center text-white"
                     style={{ backgroundColor: theme.bannerHex }}
                 >
                     <Badge
                         variant="secondary"
-                        className="mb-4 bg-black/25 text-white border border-white/15 hover:bg-black/35"
+                        className="mb-3 bg-black/25 text-white border border-white/15 hover:bg-black/35"
                     >
                         {post.category}
                     </Badge>
-                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white">
+                    <h1 className="text-2xl md:text-3xl font-bold tracking-tight mb-4 text-white">
                         {post.title}
                     </h1>
                     <div className="flex flex-wrap items-center justify-center gap-4 text-white/80 text-sm mb-6">

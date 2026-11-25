@@ -1,5 +1,5 @@
 ---
-title: "কম্বিনেশন সাম (Combination Sum)"
+title: "Combination Sum"
 date: "2026-11-24"
 excerpt: "একই সংখ্যা যতবার খুশি ব্যবহার করে টার্গেট যোগফল বানানোর সব ইউনিক কম্বিনেশন ব্যাকট্র্যাকিং দিয়ে বের করার সহজ ব্যাখ্যা।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# কম্বিনেশন সাম (Combination Sum)
+# Combination Sum
 
 সমস্যার লিংক: https://leetcode.com/problems/combination-sum/
 

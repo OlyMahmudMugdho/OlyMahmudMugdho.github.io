@@ -1,5 +1,5 @@
 ---
-title: "কার ফ্লিট (Car Fleet)"
+title: "Car Fleet"
 date: "2026-11-20"
 excerpt: "গাড়িগুলোর অবস্থান অনুযায়ী সাজিয়ে গন্তব্যে পৌঁছানোর সময় স্ট্যাকে তুলনা করে মোট কয়টি ফ্লিট হবে তা বের করার সহজ ব্যাখ্যা।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# কার ফ্লিট (Car Fleet)
+# Car Fleet
 
 সমস্যার লিংক: https://leetcode.com/problems/car-fleet/
 

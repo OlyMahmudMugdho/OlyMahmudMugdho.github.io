@@ -32,36 +32,96 @@ export interface Post extends PostMeta {
     content: string;
 }
 
-export function getPostSlugs() {
+interface PostIndexEntry {
+    publicSlug: string;
+    diskSlug: string;
+}
+
+function getAllDiskSlugs(): string[] {
     if (!fs.existsSync(postsDirectory)) {
         return [];
     }
 
-    const getAllFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
-        const files = fs.readdirSync(dirPath);
-
-        files.forEach((file) => {
-            if (fs.statSync(path.join(dirPath, file)).isDirectory()) {
-                arrayOfFiles = getAllFiles(path.join(dirPath, file), arrayOfFiles);
-            } else {
-                if (file.endsWith('.md') && !file.endsWith('.bn.md')) {
-                    const relativePath = path.relative(postsDirectory, path.join(dirPath, file)).replace(/\\/g, '/');
-                    const cleanSlug = relativePath.replace(/\.md$/, '').replace(/\/article$/, '');
-                    arrayOfFiles.push(cleanSlug);
-                }
+    const collect = (dirPath: string, acc: string[] = []): string[] => {
+        const files = fs.readdirSync(dirPath).sort();
+        for (const file of files) {
+            const full = path.join(dirPath, file);
+            if (fs.statSync(full).isDirectory()) {
+                collect(full, acc);
+            } else if (file.endsWith('.md') && !file.endsWith('.bn.md')) {
+                const relativePath = path.relative(postsDirectory, full).replace(/\\/g, '/');
+                const cleanDiskSlug = relativePath.replace(/\.md$/, '').replace(/\/article$/, '');
+                acc.push(cleanDiskSlug);
             }
-        });
-
-        return arrayOfFiles;
+        }
+        return acc;
     };
 
-    return getAllFiles(postsDirectory);
+    return collect(postsDirectory);
+}
+
+let cachedPostIndex: PostIndexEntry[] | null = null;
+
+function buildPostIndex(): PostIndexEntry[] {
+    if (process.env.NODE_ENV === 'production' && cachedPostIndex) {
+        return cachedPostIndex;
+    }
+
+    const diskSlugs = getAllDiskSlugs();
+    const leafGroups = new Map<string, string[]>();
+
+    for (const diskSlug of diskSlugs) {
+        const leaf = diskSlug.split('/').pop() || diskSlug;
+        const group = leafGroups.get(leaf) || [];
+        group.push(diskSlug);
+        leafGroups.set(leaf, group);
+    }
+
+    const entries: PostIndexEntry[] = [];
+    for (const diskSlug of diskSlugs) {
+        const leaf = diskSlug.split('/').pop() || diskSlug;
+        const group = leafGroups.get(leaf) || [diskSlug];
+        let publicSlug = leaf;
+
+        if (group.length > 1) {
+            const preferred = group.find((d) => d.startsWith('neetcode-150/')) || group[0];
+            if (diskSlug !== preferred) {
+                publicSlug = diskSlug.replace(/\//g, '-');
+            }
+        }
+
+        entries.push({ publicSlug, diskSlug });
+    }
+
+    if (process.env.NODE_ENV === 'production') {
+        cachedPostIndex = entries;
+    }
+    return entries;
+}
+
+export function resolvePostSlug(slug: string): PostIndexEntry | null {
+    const normalized = slug.replace(/\.md$/, '').replace(/\/article$/, '');
+    const entries = buildPostIndex();
+    return (
+        entries.find((e) => e.publicSlug === normalized) ||
+        entries.find((e) => e.diskSlug === normalized) ||
+        null
+    );
+}
+
+export function toPublicSlug(slug: string): string {
+    return resolvePostSlug(slug)?.publicSlug ?? slug.replace(/\.md$/, '').replace(/\/article$/, '');
+}
+
+export function getPostSlugs(): string[] {
+    return buildPostIndex().map((e) => e.publicSlug);
 }
 
 export function getAvailableLanguages(slug: string): PostLang[] {
-    const cleanSlug = slug.replace(/\.md$/, '').replace(/\/article$/, '');
+    const resolved = resolvePostSlug(slug);
+    const diskSlug = resolved?.diskSlug ?? slug.replace(/\.md$/, '').replace(/\/article$/, '');
     const langs: PostLang[] = ['en'];
-    const bnPath = path.join(postsDirectory, `${cleanSlug}/article.bn.md`);
+    const bnPath = path.join(postsDirectory, `${diskSlug}/article.bn.md`);
     if (fs.existsSync(bnPath)) {
         langs.push('bn');
     }
@@ -69,19 +129,21 @@ export function getAvailableLanguages(slug: string): PostLang[] {
 }
 
 export async function getPostBySlug(slug: string, lang: PostLang = 'en'): Promise<Post> {
-    const cleanSlug = slug.replace(/\.md$/, '').replace(/\/article$/, '');
+    const resolved = resolvePostSlug(slug);
+    const diskSlug = resolved?.diskSlug ?? slug.replace(/\.md$/, '').replace(/\/article$/, '');
+    const publicSlug = resolved?.publicSlug ?? diskSlug;
 
-    const bnPath = path.join(postsDirectory, `${cleanSlug}/article.bn.md`);
-    let fullPath = path.join(postsDirectory, `${cleanSlug}/article.md`);
-    let postFolder = cleanSlug;
+    const bnPath = path.join(postsDirectory, `${diskSlug}/article.bn.md`);
+    let fullPath = path.join(postsDirectory, `${diskSlug}/article.md`);
+    let postFolder = diskSlug;
 
     if (lang === 'bn' && fs.existsSync(bnPath)) {
         fullPath = bnPath;
     }
 
     if (!fs.existsSync(fullPath)) {
-        fullPath = path.join(postsDirectory, `${cleanSlug}.md`);
-        postFolder = path.dirname(cleanSlug);
+        fullPath = path.join(postsDirectory, `${diskSlug}.md`);
+        postFolder = path.dirname(diskSlug);
     }
 
     if (!fs.existsSync(fullPath)) {
@@ -125,7 +187,7 @@ export async function getPostBySlug(slug: string, lang: PostLang = 'en'): Promis
     // Ensure all required fields exist with defaults if missing
     const meta: PostMeta = {
         title: data.title || 'Untitled Post',
-        slug: cleanSlug,
+        slug: publicSlug,
         date: data.date ? (data.date instanceof Date ? data.date.toISOString() : String(data.date)) : new Date().toISOString(),
         excerpt: data.excerpt || '',
         category: data.category || 'Uncategorized',
@@ -143,10 +205,10 @@ export async function getPostBySlug(slug: string, lang: PostLang = 'en'): Promis
 
     return {
         ...meta,
-        slug: cleanSlug,
+        slug: publicSlug,
         content: contentHtml,
         readingTime: stats.text,
-        availableLanguages: getAvailableLanguages(cleanSlug),
+        availableLanguages: getAvailableLanguages(publicSlug),
     } as Post;
 }
 

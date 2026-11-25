@@ -1,5 +1,5 @@
 ---
-title: "কে-থ স্মলেস্ট এলিমেন্ট ইন এ বিএসটি (Kth Smallest Element in a BST)"
+title: "Kth Smallest Element in a BST"
 date: "2026-11-22"
 excerpt: "BST-তে ইন-অর্ডার ট্র্যাভার্সাল (Left -> Root -> Right) চালিয়ে ছোট থেকে বড় সাজানো তালিকা থেকে k-তম ছোট সংখ্যাটি বের করা।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# কে-থ স্মলেস্ট এলিমেন্ট ইন এ বিএসটি (Kth Smallest Element in a BST)
+# Kth Smallest Element in a BST
 
 সমস্যার লিংক: https://leetcode.com/problems/kth-smallest-element-in-a-bst/
 

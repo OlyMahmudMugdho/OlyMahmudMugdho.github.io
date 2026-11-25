@@ -1,5 +1,5 @@
 ---
-title: "টপ কে ফ্রিকোয়েন্ট এলিমেন্টস (Top K Frequent Elements)"
+title: "Top K Frequent Elements"
 date: "2026-11-20"
 excerpt: "ফ্রিকোয়েন্সি কাউন্টার আর k সাইজের মিন-হিপ ব্যবহার করে অ্যারের সবচেয়ে বেশি বার আসা kটা সংখ্যা খুঁজে বের করা।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# টপ কে ফ্রিকোয়েন্ট এলিমেন্টস (Top K Frequent Elements)
+# Top K Frequent Elements
 
 সমস্যার লিংক: https://leetcode.com/problems/top-k-frequent-elements/
 

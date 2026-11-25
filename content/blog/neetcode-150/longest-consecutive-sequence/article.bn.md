@@ -1,5 +1,5 @@
 ---
-title: "লংগেস্ট কনসিকিউটিভ সিকোয়েন্স (Longest Consecutive Sequence)"
+title: "Longest Consecutive Sequence"
 date: "2026-09-20"
 excerpt: "অ্যারে সর্ট না করেই হ্যাশ সেটের সাহায্যে O(n) সময়ে সবচেয়ে বড় ধারাবাহিক সংখ্যার চেইন খুঁজে বের করার সহজ কৌশল।"
 category: "Coding"
@@ -9,7 +9,7 @@ coverImage: "https://res.cloudinary.com/dnmubeloc/image/upload/v1789888100/blog/
 author: "M. Oly Mahmud"
 ---
 
-# লংগেস্ট কনসিকিউটিভ সিকোয়েন্স (Longest Consecutive Sequence)
+# Longest Consecutive Sequence
 
 সমস্যার লিংক: https://leetcode.com/problems/longest-consecutive-sequence
 

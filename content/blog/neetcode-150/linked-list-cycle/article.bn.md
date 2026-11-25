@@ -1,5 +1,5 @@
 ---
-title: "লিংকড লিস্ট সাইকেল (Linked List Cycle)"
+title: "Linked List Cycle"
 date: "2026-11-20"
 excerpt: "হ্যাশ সেটে ভিজিটেড নোড মনে রেখে লিংকড লিস্টের ভেতর লুপ বা সাইকেল আছে কি না তা ধরার সহজ উপায়।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# লিংকড লিস্ট সাইকেল (Linked List Cycle)
+# Linked List Cycle
 
 সমস্যার লিংক: https://leetcode.com/problems/linked-list-cycle/
 

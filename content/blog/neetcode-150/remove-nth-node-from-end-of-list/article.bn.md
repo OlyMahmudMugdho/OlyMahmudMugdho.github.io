@@ -1,5 +1,5 @@
 ---
-title: "রিমুভ এন-থ নোড ফ্রম এন্ড অব লিস্ট (Remove Nth Node From End of List)"
+title: "Remove Nth Node From End of List"
 date: "2026-11-20"
 excerpt: "লিংকড লিস্টের মোট দৈর্ঘ্য মেপে (length - n) তম অবস্থানের নোডটি খুব সহজে বাদ দেওয়ার কৌশল।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# রিমুভ এন-থ নোড ফ্রম এন্ড অব লিস্ট
+# Remove Nth Node From End of List
 
 সমস্যার লিংক: https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 

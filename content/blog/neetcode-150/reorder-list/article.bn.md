@@ -1,5 +1,5 @@
 ---
-title: "রিঅর্ডার লিস্ট (Reorder List)"
+title: "Reorder List"
 date: "2026-11-20"
 excerpt: "অ্যারে ও দুই প্রান্তের টু-পয়েন্টার দিয়ে লিংকড লিস্টকে L0 -> Ln -> L1 -> Ln-1 ক্রমে সাজানোর সহজ ব্যাখ্যা।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# রিঅর্ডার লিস্ট (Reorder List)
+# Reorder List
 
 সমস্যার লিংক: https://leetcode.com/problems/reorder-list/
 

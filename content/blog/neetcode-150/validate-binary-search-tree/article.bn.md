@@ -1,5 +1,5 @@
 ---
-title: "ভ্যালিডেট বাইনারি সার্চ ট্রি (Validate Binary Search Tree)"
+title: "Validate Binary Search Tree"
 date: "2026-11-22"
 excerpt: "DFS-এ প্রতিটি নোডের জন্য বৈধ (low, high) সীমা পাঠিয়ে বাইনারি ট্রি আসলেই BST কি না তা যাচাই করার সহজ ব্যাখ্যা।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# ভ্যালিডেট বাইনারি সার্চ ট্রি (Validate Binary Search Tree)
+# Validate Binary Search Tree
 
 সমস্যার লিংক: https://leetcode.com/problems/validate-binary-search-tree/
 

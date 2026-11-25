@@ -1,5 +1,5 @@
 ---
-title: "সাবসেটস (Subsets)"
+title: "Subsets"
 date: "2026-11-24"
 excerpt: "প্রতিটি উপাদানের জন্য 'নেব' অথবা 'নেব না'—এই দুই সিদ্ধান্তের ব্যাকট্র্যাকিং দিয়ে একটি অ্যারের সব সম্ভাব্য সাবসেট বের করার সহজ ব্যাখ্যা।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# সাবসেটস (Subsets)
+# Subsets
 
 সমস্যার লিংক: https://leetcode.com/problems/subsets/
 

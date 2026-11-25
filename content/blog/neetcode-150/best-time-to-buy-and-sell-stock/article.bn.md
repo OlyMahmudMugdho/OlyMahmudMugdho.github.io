@@ -1,5 +1,5 @@
 ---
-title: "বেস্ট টাইম টু বাই অ্যান্ড সেল স্টক (Best Time to Buy and Sell Stock)"
+title: "Best Time to Buy and Sell Stock"
 date: "2026-11-20"
 excerpt: "একবার অ্যারে ঘুরে এখন পর্যন্ত দেখা সবচেয়ে কম দাম মনে রেখে স্টক কেনাবেচায় সর্বোচ্চ লাভ বের করার সহজ উপায়।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# বেস্ট টাইম টু বাই অ্যান্ড সেল স্টক (Best Time to Buy and Sell Stock)
+# Best Time to Buy and Sell Stock
 
 সমস্যার লিংক: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 

@@ -1,5 +1,5 @@
 ---
-title: "কন্টেইনার উইথ মোস্ট ওয়াটার (Container With Most Water)"
+title: "Container With Most Water"
 date: "2026-11-20"
 excerpt: "টু-পয়েন্টার টেকনিক ব্যবহার করে দুই দেয়ালের মাঝে সর্বোচ্চ কতটুকু পানি ধরে, তা O(n) সময়ে বের করার সহজ ব্যাখ্যা।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# কন্টেইনার উইথ মোস্ট ওয়াটার (Container With Most Water)
+# Container With Most Water
 
 সমস্যার লিংক: https://leetcode.com/problems/container-with-most-water/
 

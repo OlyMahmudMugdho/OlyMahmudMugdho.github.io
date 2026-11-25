@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { getPostBySlug, getPostSlugs, getAvailableLanguages } from "@/lib/blog"
 import { getCourseContextForPost } from "@/lib/courses"
 import { SITE_NAME, SITE_URL } from "@/lib/site"
-import { notFound } from "next/navigation"
+import { notFound, redirect } from "next/navigation"
 import { BlogPostView } from "@/components/blog/blog-post-view"
 
 interface PostPageProps {
@@ -67,10 +67,14 @@ export default async function PostPage({ params }: PostPageProps) {
         notFound()
     }
 
-    const availableLangs = getAvailableLanguages(slug)
+    if (slug !== enPost.slug) {
+        redirect(`/blog/${enPost.slug}`)
+    }
+
+    const availableLangs = getAvailableLanguages(enPost.slug)
     const [bnPost, courseContext] = await Promise.all([
-        availableLangs.includes("bn") ? getPostBySlug(slug, "bn") : Promise.resolve(null),
-        getCourseContextForPost(slug),
+        availableLangs.includes("bn") ? getPostBySlug(enPost.slug, "bn") : Promise.resolve(null),
+        getCourseContextForPost(enPost.slug),
     ])
 
     const jsonLd = {

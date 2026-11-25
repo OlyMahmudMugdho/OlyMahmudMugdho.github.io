@@ -1,5 +1,5 @@
 ---
-title: "ক্লাইম্বিং স্টেয়ার্স (Climbing Stairs)"
+title: "Climbing Stairs"
 date: "2026-11-22"
 excerpt: "প্রতি ধাপে ১ বা ২ সিঁড়ি উঠে n ধাপে পৌঁছানোর মোট উপায় 1D Dynamic Programming-এর মাধ্যমে বের করার সহজ ব্যাখ্যা।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# ক্লাইম্বিং স্টেয়ার্স (Climbing Stairs)
+# Climbing Stairs
 
 সমস্যার লিংক: https://leetcode.com/problems/climbing-stairs/
 

@@ -1,5 +1,5 @@
 ---
-title: "ভ্যালিড প্যারেন্থেসিস (Valid Parentheses)"
+title: "Valid Parentheses"
 date: "2026-11-20"
 excerpt: "স্ট্যাক এবং হ্যাশ ম্যাপ ব্যবহার করে ব্র্যাকেটের স্ট্রিং সঠিকভাবে খোলা ও বন্ধ হয়েছে কি না তা যাচাই করার সহজ ব্যাখ্যা।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# ভ্যালিড প্যারেন্থেসিস (Valid Parentheses)
+# Valid Parentheses
 
 সমস্যার লিংক: https://leetcode.com/problems/valid-parentheses/
 

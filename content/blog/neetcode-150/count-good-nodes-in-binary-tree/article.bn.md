@@ -1,5 +1,5 @@
 ---
-title: "কাউন্ট গুড নোডস ইন বাইনারি ট্রি (Count Good Nodes in Binary Tree)"
+title: "Count Good Nodes in Binary Tree"
 date: "2026-11-20"
 excerpt: "DFS-এর মাধ্যমে রুট থেকে আসার পথে সর্বোচ্চ মান (mx) ট্র্যাক করে বাইনারি ট্রির মোট গুড নোডের সংখ্যা বের করার সহজ ব্যাখ্যা।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# কাউন্ট গুড নোডস ইন বাইনারি ট্রি (Count Good Nodes in Binary Tree)
+# Count Good Nodes in Binary Tree
 
 সমস্যার লিংক: https://leetcode.com/problems/count-good-nodes-in-binary-tree/
 

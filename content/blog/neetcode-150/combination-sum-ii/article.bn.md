@@ -1,5 +1,5 @@
 ---
-title: "কম্বিনেশন সাম ২ (Combination Sum II)"
+title: "Combination Sum II"
 date: "2026-11-24"
 excerpt: "প্রতিটি সংখ্যা সর্বোচ্চ একবার ব্যবহার করে এবং সর্টিং ও ডুপ্লিকেট-স্কিপিং ব্যাকট্র্যাকিংয়ের মাধ্যমে টার্গেট যোগফল বানানোর সব ইউনিক কম্বিনেশন বের করা।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# কম্বিনেশন সাম ২ (Combination Sum II)
+# Combination Sum II
 
 সমস্যার লিংক: https://leetcode.com/problems/combination-sum-ii/
 

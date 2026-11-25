@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { getPostBySlug, getAvailableLanguages, type PostMeta, type PostLang } from './blog';
+import { getPostBySlug, getAvailableLanguages, toPublicSlug, type PostMeta, type PostLang } from './blog';
 
 const coursesDirectory = path.join(process.cwd(), 'content/courses');
 
@@ -82,7 +82,8 @@ export function getAllCourses(): CourseSummary[] {
 
         const units = Array.isArray(data.units) ? data.units : [];
         const lessonCount = units.reduce((acc, u) => acc + (u.lessons?.length || 0), 0);
-        const firstLessonSlug = units[0]?.lessons?.[0]?.slug;
+        const rawFirstSlug = units[0]?.lessons?.[0]?.slug;
+        const firstLessonSlug = rawFirstSlug ? toPublicSlug(rawFirstSlug) : undefined;
 
         return {
             slug,
@@ -125,13 +126,14 @@ export async function getCourseBySlug(slug: string): Promise<CourseDetail> {
                         // Keep lesson resilient if a post slug is missing
                     }
 
+                    const publicSlug = toPublicSlug(lesson.slug);
                     return {
-                        title: lesson.title || meta.title || lesson.slug,
-                        slug: lesson.slug,
+                        title: lesson.title || meta.title || publicSlug,
+                        slug: publicSlug,
                         description: lesson.description || meta.excerpt,
                         readingTime: meta.readingTime,
                         excerpt: meta.excerpt,
-                        availableLanguages: getAvailableLanguages(lesson.slug),
+                        availableLanguages: getAvailableLanguages(publicSlug),
                         lessonNumber: currentNumber,
                     };
                 })
@@ -162,7 +164,7 @@ export async function getCourseBySlug(slug: string): Promise<CourseDetail> {
 }
 
 export async function getCourseContextForPost(postSlug: string): Promise<PostCourseContext | null> {
-    const cleanPostSlug = postSlug.replace(/\.md$/, '').replace(/\/article$/, '');
+    const cleanPostSlug = toPublicSlug(postSlug);
     const courseSlugs = getCourseSlugs();
 
     for (const courseSlug of courseSlugs) {

@@ -1,5 +1,5 @@
 ---
-title: "সাবট্রি অব অ্যানাদার ট্রি (Subtree of Another Tree)"
+title: "Subtree of Another Tree"
 date: "2026-11-20"
 excerpt: "মূল ট্রির প্রতিটি নোডে Same Tree চেক চালিয়ে আরেকটি ট্রি এর ভেতর সাবট্রি হিসেবে আছে কি না তা বের করার সহজ ব্যাখ্যা।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# সাবট্রি অব অ্যানাদার ট্রি (Subtree of Another Tree)
+# Subtree of Another Tree
 
 সমস্যার লিংক: https://leetcode.com/problems/subtree-of-another-tree/
 

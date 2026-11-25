@@ -1,5 +1,5 @@
 ---
-title: "মিন কস্ট ক্লাইম্বিং স্টেয়ার্স (Min Cost Climbing Stairs)"
+title: "Min Cost Climbing Stairs"
 date: "2026-11-22"
 excerpt: "মাত্র দুটি ভেরিয়েবল ব্যবহার করে O(1) স্পেসে সবচেয়ে কম খরচে সিঁড়ির চূড়ায় ওঠার 1D Dynamic Programming সমাধান।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# মিন কস্ট ক্লাইম্বিং স্টেয়ার্স (Min Cost Climbing Stairs)
+# Min Cost Climbing Stairs
 
 সমস্যার লিংক: https://leetcode.com/problems/min-cost-climbing-stairs/
 

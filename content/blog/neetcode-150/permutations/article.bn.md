@@ -1,5 +1,5 @@
 ---
-title: "পারমুটেশনস (Permutations)"
+title: "Permutations"
 date: "2026-11-24"
 excerpt: "ব্যাকট্র্যাকিং ব্যবহার করে একটি অ্যারের সংখ্যাগুলোর সব সম্ভাব্য বিন্যাস (Permutations) বের করার সহজ ব্যাখ্যা।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# পারমুটেশনস (Permutations)
+# Permutations
 
 সমস্যার লিংক: https://leetcode.com/problems/permutations/
 

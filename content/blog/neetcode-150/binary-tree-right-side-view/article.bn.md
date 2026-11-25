@@ -1,5 +1,5 @@
 ---
-title: "বাইনারি ট্রি রাইট সাইড ভিউ (Binary Tree Right Side View)"
+title: "Binary Tree Right Side View"
 date: "2026-11-20"
 excerpt: "BFS দিয়ে লেভেল অনুযায়ী এগিয়ে প্রতি লেভেলের শেষ নোডটি নিয়ে বাইনারি ট্রির ডান পাশের দৃশ্য বের করার সহজ ব্যাখ্যা।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# বাইনারি ট্রি রাইট সাইড ভিউ (Binary Tree Right Side View)
+# Binary Tree Right Side View
 
 সমস্যার লিংক: https://leetcode.com/problems/binary-tree-right-side-view/
 

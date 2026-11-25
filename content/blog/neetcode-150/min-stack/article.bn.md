@@ -1,5 +1,5 @@
 ---
-title: "মিন স্ট্যাক (Min Stack)"
+title: "Min Stack"
 date: "2026-11-20"
 excerpt: "আসল স্ট্যাকের পাশাপাশি আরেকটি মিনিমাম স্ট্যাক রেখে O(1) সময়ে getMin() করার সহজ কৌশল।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# মিন স্ট্যাক (Min Stack)
+# Min Stack
 
 সমস্যার লিংক: https://leetcode.com/problems/min-stack/
 

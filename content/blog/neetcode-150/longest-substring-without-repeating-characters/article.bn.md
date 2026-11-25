@@ -1,5 +1,5 @@
 ---
-title: "লংগেস্ট সাবস্ট্রিং উইদাউট রিপিটিং ক্যারেক্টার্স (Longest Substring Without Repeating Characters)"
+title: "Longest Substring Without Repeating Characters"
 date: "2026-11-20"
 excerpt: "স্লাইডিং উইন্ডো আর হ্যাশ সেট ব্যবহার করে কোনো অক্ষর রিপিট না করে সবচেয়ে লম্বা সাবস্ট্রিং বের করার সহজ ব্যাখ্যা।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# লংগেস্ট সাবস্ট্রিং উইদাউট রিপিটিং ক্যারেক্টার্স
+# Longest Substring Without Repeating Characters
 
 সমস্যার লিংক: https://leetcode.com/problems/longest-substring-without-repeating-characters/
 

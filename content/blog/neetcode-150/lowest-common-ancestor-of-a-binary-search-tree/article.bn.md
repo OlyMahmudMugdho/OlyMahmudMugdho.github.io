@@ -1,5 +1,5 @@
 ---
-title: "লোয়েস্ট কমন অ্যানসেস্টর অব এ বাইনারি সার্চ ট্রি (LCA of BST)"
+title: "Lowest Common Ancestor of a Binary Search Tree"
 date: "2026-11-20"
 excerpt: "রিকার্সিভ সাবট্রি সার্চ এবং BST-এর অর্ডারিং প্রপার্টি ব্যবহার করে দুটি নোডের Lowest Common Ancestor (LCA) খুঁজে বের করার সহজ ব্যাখ্যা।"
 category: "Coding"
@@ -8,7 +8,7 @@ featured: false
 author: "M. Oly Mahmud"
 ---
 
-# লোয়েস্ট কমন অ্যানসেস্টর অব এ বাইনারি সার্চ ট্রি
+# Lowest Common Ancestor of a Binary Search Tree
 
 সমস্যার লিংক: https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
 

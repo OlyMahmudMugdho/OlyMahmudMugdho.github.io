@@ -5,6 +5,7 @@ excerpt: "How HTTP/1.1 requests and responses are formatted as plain text over T
 category: "Coding"
 tags: ["coding", "networking", "tcp", "http", "golang", "http-from-tcp"]
 featured: false
+coverImage: "https://res.cloudinary.com/dnmubeloc/image/upload/v1795594765/blog/d621b812-a99a-4f40-bbfb-8bf74989bc16_stzooi.webp"
 author: "M. Oly Mahmud"
 ---
 

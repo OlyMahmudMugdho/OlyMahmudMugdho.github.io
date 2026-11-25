@@ -17,6 +17,29 @@ function resolveSiteUrl(): string {
 export const SITE_URL = resolveSiteUrl()
 
 export const SITE_NAME = "M. Oly Mahmud"
-export const SITE_TITLE = "M. Oly Mahmud - Software & DevOps Engineer"
+export const SITE_TITLE = "M. Oly Mahmud — Back-End, DevOps & AI Engineer"
 export const SITE_DESCRIPTION =
-  "Portfolio, technical blog, and courses by M. Oly Mahmud covering Go, networking, algorithms, DevOps, and Cloud technologies."
+  "Back-End Software & DevOps Engineer working with Java, Python, Node.js, Go, Cloud, and Gen AI, with active research in Distributed Systems and Artificial Intelligence."
+export const SITE_KEYWORDS = [
+  "M. Oly Mahmud",
+  "Back-End Engineer",
+  "DevOps Engineer",
+  "Software Engineer",
+  "Java",
+  "Python",
+  "Node.js",
+  "Go",
+  "Golang",
+  "Cloud Infrastructure",
+  "Gen AI",
+  "Distributed Systems",
+  "Artificial Intelligence",
+  "Networking",
+  "Data Structures and Algorithms",
+  "Technical Blog",
+]
+export const SITE_PROFILES = [
+  "https://github.com/OlyMahmudMugdho/",
+  "https://www.linkedin.com/in/olymahmud/",
+  "https://dev.to/olymahmud/",
+]

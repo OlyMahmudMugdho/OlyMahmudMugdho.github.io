@@ -5,14 +5,16 @@ import { GraduationCap } from "lucide-react"
 
 export const metadata: Metadata = {
     title: "Courses",
-    description: "Structured technical courses on networking, HTTP from TCP in Go, data structures, and algorithms.",
-    alternates: {
-        canonical: "/courses",
-    },
+    description: "Hands-on, unit-based engineering courses covering HTTP from TCP in Go, NeetCode 150, and Blind 75 algorithms with visual diagrams.",
     openGraph: {
+        type: "website",
         title: "Courses | M. Oly Mahmud",
-        description: "Structured technical courses on networking, HTTP from TCP in Go, data structures, and algorithms.",
-        url: "/courses",
+        description: "Hands-on, unit-based engineering courses covering HTTP from TCP in Go, NeetCode 150, and Blind 75 algorithms with visual diagrams.",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Courses | M. Oly Mahmud",
+        description: "Hands-on, unit-based engineering courses covering HTTP from TCP in Go, NeetCode 150, and Blind 75 algorithms with visual diagrams.",
     },
 }
 

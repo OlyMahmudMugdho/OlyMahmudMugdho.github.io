@@ -13,12 +13,28 @@ import { ArticlesSection } from "@/components/sections/articles"
 import { CoursesSection } from "@/components/sections/courses"
 import { Footer } from "@/components/sections/footer"
 import { getAllCourses } from "@/lib/courses"
+import { SITE_DESCRIPTION, SITE_NAME, SITE_PROFILES, SITE_URL } from "@/lib/site"
 
 export default function Home() {
   const courses = getAllCourses()
 
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: SITE_NAME,
+    jobTitle: "Back-End Software & DevOps Engineer",
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    email: "mailto:oly.ice.pust@gmail.com",
+    sameAs: SITE_PROFILES,
+  }
+
   return (
     <main className="min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       <Navbar />
       <HeroSection />
       <AboutSection />

@@ -5,14 +5,16 @@ import { BlogListClient } from "@/components/blog/blog-list-client"
 
 export const metadata: Metadata = {
     title: "Blog",
-    description: "Technical articles, tutorials, and guides on Go, networking, algorithms, software engineering, and DevOps.",
-    alternates: {
-        canonical: "/blog",
-    },
+    description: "In-depth engineering articles, system guides, and bilingual DSA walkthroughs covering Go, networking, algorithms, Cloud, and DevOps.",
     openGraph: {
+        type: "website",
         title: "Blog | M. Oly Mahmud",
-        description: "Technical articles, tutorials, and guides on Go, networking, algorithms, software engineering, and DevOps.",
-        url: "/blog",
+        description: "In-depth engineering articles, system guides, and bilingual DSA walkthroughs covering Go, networking, algorithms, Cloud, and DevOps.",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Blog | M. Oly Mahmud",
+        description: "In-depth engineering articles, system guides, and bilingual DSA walkthroughs covering Go, networking, algorithms, Cloud, and DevOps.",
     },
 }
 

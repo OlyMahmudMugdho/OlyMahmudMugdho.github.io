@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Coral-orange hard offset shadow matching the hero terminal card -->
+  <rect x="10" y="10" width="50" height="50" rx="11" fill="#F16C38" />
+
+  <!-- Dark terminal window body -->
+  <rect x="4" y="4" width="50" height="50" rx="11" fill="#161514" stroke="#191715" stroke-width="2" />
+
+  <!-- Terminal title bar -->
+  <path d="M 5 18 L 53 18" stroke="#2F2C29" stroke-width="1.8" />
+  <circle cx="13" cy="11.5" r="2.6" fill="#F16C38" />
+  <circle cx="21" cy="11.5" r="2.6" fill="#8C857B" />
+  <circle cx="29" cy="11.5" r="2.6" fill="#C8C0B4" />
+
+  <!-- Prompt chevron (>) and cursor (_) -->
+  <polyline
+    points="14,28 24,35.5 14,43"
+    fill="none"
+    stroke="#F16C38"
+    stroke-width="4.8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <line
+    x1="29"
+    y1="43"
+    x2="43"
+    y2="43"
+    stroke="#FAF6EE"
+    stroke-width="4.8"
+    stroke-linecap="round"
+  />
+</svg>

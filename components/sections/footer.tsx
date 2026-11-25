@@ -57,7 +57,7 @@ export function Footer() {
               M. Oly Mahmud
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
-              Back-End Software &amp; DevOps Engineer writing about Go, networking, algorithms, and cloud infrastructure.
+              Back-End Software &amp; DevOps Engineer working across Cloud, Gen AI, Distributed Systems, and Artificial Intelligence.
             </p>
             <div className="flex items-center gap-2 pt-1">
               {socialLinks.map(({ name, href, icon: Icon, external }) => (

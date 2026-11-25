@@ -20,14 +20,10 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
-  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  authors: [{ name: SITE_NAME }],
   creator: SITE_NAME,
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     type: 'website',
-    url: SITE_URL,
     siteName: SITE_NAME,
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,

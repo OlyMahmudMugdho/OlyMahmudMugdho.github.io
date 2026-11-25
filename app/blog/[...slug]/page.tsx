@@ -22,18 +22,13 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
     const slug = params.slug.join("/")
     try {
         const post = await getPostBySlug(slug, "en")
-        const url = `/blog/${post.slug}`
         return {
             title: post.title,
             description: post.excerpt,
             keywords: post.tags,
             authors: [{ name: post.author || SITE_NAME }],
-            alternates: {
-                canonical: url,
-            },
             openGraph: {
                 type: "article",
-                url,
                 title: post.title,
                 description: post.excerpt,
                 publishedTime: post.date,

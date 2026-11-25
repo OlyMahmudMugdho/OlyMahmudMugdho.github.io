@@ -23,17 +23,12 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: CoursePageProps): Promise<Metadata> {
     try {
         const course = await getCourseBySlug(params.slug)
-        const url = `/courses/${course.slug}`
         return {
             title: course.title,
             description: course.description,
             keywords: course.tags,
-            alternates: {
-                canonical: url,
-            },
             openGraph: {
                 type: "website",
-                url,
                 title: course.title,
                 description: course.description,
             },

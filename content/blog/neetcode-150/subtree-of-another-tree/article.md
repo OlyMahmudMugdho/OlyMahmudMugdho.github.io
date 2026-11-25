@@ -22,13 +22,18 @@ A **subtree** of a binary tree `tree` is a tree that consists of a node in `tree
 
 # Example 1
 
-```text
-root:               subRoot:
-      3                 4
-     / \               / \
-    4   5             1   2
-   / \
-  1   2
+```tree
+title: root
+3
+  4 !hit
+    1 !hit
+    2 !hit
+  5
+---
+title: subRoot
+4 !hit
+  1 !hit
+  2 !hit
 ```
 
 Output:
@@ -43,15 +48,20 @@ The subtree rooted at node `4` in `root` matches `subRoot` completely.
 
 # Example 2
 
-```text
-root:               subRoot:
-      3                 4
-     / \               / \
-    4   5             1   2
-   / \
-  1   2
-     /
-    0
+```tree
+title: root
+3
+  4
+    1
+    2
+      0 : extra !pruned
+      _ !ghost
+  5
+---
+title: subRoot
+4
+  1
+  2
 ```
 
 Output:

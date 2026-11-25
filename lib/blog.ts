@@ -6,6 +6,8 @@ import remarkRehype from 'remark-rehype';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeStringify from 'rehype-stringify';
 import readingTime from 'reading-time';
+import { transformTreeDiagrams } from '@/lib/tree-diagram';
+import { transformFlowDiagrams } from '@/lib/flow-diagram';
 
 const postsDirectory = path.join(process.cwd(), 'content/blog');
 
@@ -96,7 +98,11 @@ export async function getPostBySlug(slug: string, lang: PostLang = 'en'): Promis
     const { data, content } = matter(fileContents);
 
     // Strip a leading H1 heading from markdown body so it doesn't duplicate the page header title
-    const cleanedContent = content.replace(/^\s*#\s+[^\r\n]+(\r?\n)+/, '');
+    const cleanedContent = transformFlowDiagrams(
+        transformTreeDiagrams(
+            content.replace(/^\s*#\s+[^\r\n]+(\r?\n)+/, '')
+        )
+    );
 
     const processedContent = await remark()
         .use(remarkRehype, { allowDangerousHtml: true })

@@ -22,14 +22,16 @@ The lowest common ancestor is defined between two nodes `p` and `q` as the lowes
 
 # Example 1
 
-```text
-          6
-        /   \
-       2     8
-      / \   / \
-     0   4 7   9
-        / \
-       3   5
+```tree
+6 : LCA !hit
+  2
+    0
+    4
+      3
+      5
+  8
+    7
+    9
 ```
 
 Input: `p = 2, q = 8`

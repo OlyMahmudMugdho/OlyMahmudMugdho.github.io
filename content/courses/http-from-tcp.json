@@ -27,6 +27,14 @@
         {
           "title": "First HTTP Server Over Raw TCP",
           "slug": "http-from-tcp/first-tcp-http-server"
+        },
+        {
+          "title": "Structuring the Server and Concurrency",
+          "slug": "http-from-tcp/organizing-server-and-concurrency"
+        },
+        {
+          "title": "Parsing Raw HTTP Requests",
+          "slug": "http-from-tcp/parsing-http-requests"
         }
       ]
     }

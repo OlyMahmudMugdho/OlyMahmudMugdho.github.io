@@ -22,12 +22,14 @@ Return the number of **good** nodes in the binary tree.
 
 # Example 1
 
-```text
-        3
-       / \
-      1   4
-     /   / \
-    3   1   5
+```tree
+3 : good !hit
+  1
+    3 : good !hit
+    _ !ghost
+  4 : good !hit
+    1
+    5 : good !hit
 ```
 
 Output:

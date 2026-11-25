@@ -24,9 +24,10 @@ An IP address (such as `127.0.0.1` or `93.184.216.34`) identifies a machine on a
 
 The OS identifies each TCP connection by four values:
 
-```text
-(Client IP, Client Port)  <======>  (Server IP, Server Port)
-  127.0.0.1 : 54321                   127.0.0.1 : 8080
+```sequence
+title: TCP 4-Tuple Connection
+actors: Client : 127.0.0.1 : 54321 | Server : 127.0.0.1 : 8080 !accent
+<-> (Client IP, Port) <-> (Server IP, Port) !hit
 ```
 
 The client's OS picks an unused temporary port (called an ephemeral port) for each outgoing connection. That is how a browser can keep multiple connections open to the same server port without mixing up their data.
@@ -35,19 +36,13 @@ The client's OS picks an unused temporary port (called an ephemeral port) for ea
 
 Before application data moves across the wire, the client and server establish a connection and agree on starting sequence numbers. This takes three packets:
 
-```text
-Client                                      Server
-  |                                           |
-  |  1. SYN (seq=x)                           |
-  | ----------------------------------------> |
-  |                                           |
-  |  2. SYN-ACK (seq=y, ack=x+1)              |
-  | <---------------------------------------- |
-  |                                           |
-  |  3. ACK (ack=y+1)                         |
-  | ----------------------------------------> |
-  |                                           |
-  |======== Connection Established ===========|
+```sequence
+title: TCP Three-Way Handshake
+actors: Client | Server !accent
+-> 1. SYN (seq=x)
+<- 2. SYN-ACK (seq=y, ack=x+1)
+-> 3. ACK (ack=y+1)
+== Connection Established ==
 ```
 
 1. The client sends a `SYN` packet with an initial sequence number `x`.
@@ -79,16 +74,13 @@ Because TCP only delivers a continuous stream of bytes, the protocol running on 
 
 When both sides finish sending data, TCP closes the connection using `FIN` packets:
 
-```text
-Client                                      Server
-  |  FIN                                      |
-  | ----------------------------------------> |
-  |  ACK                                      |
-  | <---------------------------------------- |
-  |  FIN                                      |
-  | <---------------------------------------- |
-  |  ACK                                      |
-  | ----------------------------------------> |
+```sequence
+title: TCP Four-Way Teardown
+actors: Client | Server !accent
+-> 1. FIN
+<- 2. ACK !muted
+<- 3. FIN
+-> 4. ACK !muted
 ```
 
 In Go, calling `conn.Close()` starts this teardown for that socket.

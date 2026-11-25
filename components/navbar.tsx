@@ -13,14 +13,9 @@ export function Navbar({ className }: { className?: string }) {
   const navItems = [
     { name: "About", href: "/#about" },
     { name: "Experience", href: "/#experience" },
-    { name: "Education", href: "/#education" },
     { name: "Projects", href: "/#projects" },
-    { name: "Articles", href: "/#articles" },
-    { name: "Certifications", href: "/#certifications" },
     { name: "Courses", href: "/courses" },
     { name: "Blog", href: "/blog" },
-    { name: "Newsletter", href: "/#newsletter" },
-    { name: "Skills", href: "/#skills" },
     { name: "Contact", href: "/#contact" },
   ]
 
@@ -34,7 +29,7 @@ export function Navbar({ className }: { className?: string }) {
             </Link>
           </div>
 
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <Link
                 key={item.name}

@@ -30,12 +30,12 @@ A **leaf node** is a node that has no left or right child.
 ## Example
 <div align="center">
 
-```
-        3
-       / \
-      9   20
-         / \
-        15  7
+```tree
+3
+  9
+  20
+    15
+    7
 ```
 </div>
 
@@ -110,12 +110,12 @@ This is the only formula you need to remember.
 
 Consider this tree:
 
-```
-        3
-       / \
-      9   20
-         / \
-        15  7
+```tree
+3
+  9
+  20
+    15
+    7
 ```
 
 ### Step 1

@@ -49,14 +49,23 @@ So at each step of building `path`:
 
 For `nums = [1, 2, 3]`, each level picks one unused element from `nums`:
 
-```text
-                          []
-            /             |             \
-          [1]            [2]            [3]
-         /   \          /   \          /   \
-     [1,2]  [1,3]   [2,1]  [2,3]   [3,1]  [3,2]
-       |      |       |      |       |      |
-   [1,2,3][1,3,2] [2,1,3][2,3,1] [3,1,2][3,2,1]
+```tree
+[]
+  [1]
+    [1,2]
+      [1,2,3] !hit
+    [1,3]
+      [1,3,2] !hit
+  [2]
+    [2,1]
+      [2,1,3] !hit
+    [2,3]
+      [2,3,1] !hit
+  [3]
+    [3,1]
+      [3,1,2] !hit
+    [3,2]
+      [3,2,1] !hit
 ```
 
 Every leaf at depth `3` is one complete permutation!

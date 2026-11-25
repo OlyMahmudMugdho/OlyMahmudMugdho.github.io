@@ -24,28 +24,19 @@ For this first working version, the server needs to do five things:
 
 Here is the flow of our initial server loop:
 
-```text
-net.Listen("tcp", ":8080")
-          |
-          v
-    +--> [ listener.Accept() ]  <--- Waits for a client TCP handshake
-    |          |
-    |          v
-    |    Print conn.RemoteAddr()
-    |          |
-    |          v
-    |    conn.Read(b)           <--- Reads raw HTTP request bytes
-    |          |
-    |          v
-    |    conn.Write(response)   <--- Sends raw HTTP response bytes
-    |          |
-    |          v
-    |    conn.Close()           <--- Closes the TCP connection
-    |          |
-    +----------+ (wait for next connection)
+```flow
+title: TCP HTTP Server Loop
+net.Listen("tcp", ":8080") !accent
+@loop-start
+listener.Accept() : Waits for a client TCP handshake !hit
+Print conn.RemoteAddr()
+conn.Read(b) : Reads raw HTTP request bytes
+conn.Write(response) : Sends raw HTTP response bytes
+conn.Close() : Closes the TCP connection !muted
+@loop-end: next connection
 ```
 
-## The Code (`main.go`)
+## The Code (main.go)
 
 After initializing the module (`go mod init github.com/OlyMahmudMugdho/ant`), here is the initial `main.go`:
 
@@ -94,7 +85,7 @@ func main() {
 }
 ```
 
-## Walking Through `main.go`
+## Walking Through main.go
 
 ### Listening on Port 8080
 
@@ -147,7 +138,7 @@ conn.Close()
 
 We format an HTTP/1.1 response string, convert it to a byte slice, write it to `conn`, and call `conn.Close()` to terminate the connection.
 
-## Testing With `curl`
+## Testing With curl
 
 Run the server in one terminal:
 

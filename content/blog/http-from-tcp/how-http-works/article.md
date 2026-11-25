@@ -16,17 +16,12 @@ TCP gives two programs an ordered byte stream, with no concept of URLs, headers,
 
 HTTP follows a straightforward request-response flow:
 
-```text
-Client (curl / browser)                        Server (Ant)
-         |                                          |
-         |  ---------- TCP Connection ------------  |
-         |                                          |
-         |  HTTP Request (plain text bytes)         |
-         | ---------------------------------------> |
-         |                                          |
-         |  HTTP Response (plain text bytes)        |
-         | <--------------------------------------- |
-         |                                          |
+```sequence
+title: HTTP Request-Response Cycle
+actors: Client (curl / browser) | Server (Ant) !accent
+<-> TCP Connection !muted
+-> HTTP Request (plain text bytes) !accent
+<- HTTP Response (plain text bytes) !hit
 ```
 
 1. The client opens a TCP connection to the server and writes an HTTP request.
@@ -55,17 +50,12 @@ Accept: */*\r\n
 
 Every HTTP/1.1 request has four sections:
 
-```text
-+--------------------------------------------------+
-| Request Line:   METHOD SP PATH SP VERSION \r\n   |
-+--------------------------------------------------+
-| Headers:        Key: Value \r\n                  |
-|                 Key: Value \r\n                  |
-+--------------------------------------------------+
-| Blank Line:     \r\n                             |
-+--------------------------------------------------+
-| Body:           (optional payload, e.g. JSON)    |
-+--------------------------------------------------+
+```stack
+title: HTTP/1.1 Request Anatomy
+Request Line | METHOD SP PATH SP VERSION \r\n !accent
+Headers | Key: Value \r\n (one per line)
+Blank Line | \r\n (marks end of headers) !muted
+Body | Optional payload (e.g. JSON) !hit
 ```
 
 1. Request Line (`GET /hello HTTP/1.1`): Contains the HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`), the request path (`/hello`), and the protocol version (`HTTP/1.1`).
@@ -87,17 +77,12 @@ Hello World
 
 It uses the same layout as a request:
 
-```text
-+--------------------------------------------------+
-| Status Line:    VERSION SP CODE SP REASON \r\n   |
-+--------------------------------------------------+
-| Headers:        Key: Value \r\n                  |
-|                 Key: Value \r\n                  |
-+--------------------------------------------------+
-| Blank Line:     \r\n                             |
-+--------------------------------------------------+
-| Body:           Hello World                      |
-+--------------------------------------------------+
+```stack
+title: HTTP/1.1 Response Anatomy
+Status Line | VERSION SP CODE SP REASON \r\n !accent
+Headers | Key: Value \r\n (Content-Type, Content-Length)
+Blank Line | \r\n (separates headers from body) !muted
+Body | Hello World !hit
 ```
 
 1. Status Line (`HTTP/1.1 200 OK`): Contains the HTTP version, a 3-digit status code, and a short reason phrase. Status codes are grouped by their first digit:

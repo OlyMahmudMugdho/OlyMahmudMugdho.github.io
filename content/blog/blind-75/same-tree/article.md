@@ -30,12 +30,16 @@ If both conditions are true, return `True`. Otherwise, return `False`.
 
 # Example 1
 
-```
-Tree p:              Tree q:
-
-      1                   1
-     / \                 / \
-    2   3               2   3
+```tree
+title: Tree p
+1 !hit
+  2 !hit
+  3 !hit
+---
+title: Tree q
+1 !hit
+  2 !hit
+  3 !hit
 ```
 
 Output
@@ -50,12 +54,16 @@ Both trees have the same structure and the same values.
 
 # Example 2
 
-```
-Tree p:              Tree q:
-
-      1                   1
-     /                     \
-    2                       2
+```tree
+title: Tree p
+1
+  2 : left !pruned
+  _ !ghost
+---
+title: Tree q
+1
+  _ !ghost
+  2 : right !pruned
 ```
 
 Output
@@ -70,12 +78,16 @@ The values are the same, but the structure is different.
 
 # Example 3
 
-```
-Tree p:              Tree q:
-
-      1                   1
-     / \                 / \
-    2   1               1   2
+```tree
+title: Tree p
+1
+  2 !pruned
+  1 !pruned
+---
+title: Tree q
+1
+  1 !pruned
+  2 !pruned
 ```
 
 Output

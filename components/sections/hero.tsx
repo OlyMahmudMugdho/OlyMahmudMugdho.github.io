@@ -15,14 +15,6 @@ export function HeroSection() {
 
       <div className="max-w-4xl mx-auto text-left relative z-10">
         <div className="mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6 border border-primary/20 animate-in fade-in slide-in-from-bottom-2 duration-1000">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-            </span>
-            AVAILABLE FOR NEW PROJECTS
-          </div>
-
           <h1 className="text-4xl md:text-7xl font-extrabold mb-6 tracking-tight leading-[1.1] animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200">
             Hi, I&apos;m <span className="text-primary italic">M. Oly Mahmud</span>. <br />
 

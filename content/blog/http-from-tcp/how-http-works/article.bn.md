@@ -16,17 +16,12 @@ TCP দুইটা প্রোগ্রামের মধ্যে একট�
 
 HTTP সহজ একটা request-response ধাপে কাজ করে:
 
-```text
-Client (curl / browser)                        Server (Ant)
-         |                                          |
-         |  ---------- TCP Connection ------------  |
-         |                                          |
-         |  HTTP Request (plain text bytes)         |
-         | ---------------------------------------> |
-         |                                          |
-         |  HTTP Response (plain text bytes)        |
-         | <--------------------------------------- |
-         |                                          |
+```sequence
+title: HTTP Request-Response Cycle
+actors: Client (curl / browser) | Server (Ant) !accent
+<-> TCP Connection !muted
+-> HTTP Request (plain text bytes) !accent
+<- HTTP Response (plain text bytes) !hit
 ```
 
 1. ক্লায়েন্ট সার্ভারের সাথে TCP connection খোলে এবং একটা HTTP request পাঠায়।
@@ -55,17 +50,12 @@ Accept: */*\r\n
 
 প্রতিটা HTTP/1.1 request-এ চারটা অংশ থাকে:
 
-```text
-+--------------------------------------------------+
-| Request Line:   METHOD SP PATH SP VERSION \r\n   |
-+--------------------------------------------------+
-| Headers:        Key: Value \r\n                  |
-|                 Key: Value \r\n                  |
-+--------------------------------------------------+
-| Blank Line:     \r\n                             |
-+--------------------------------------------------+
-| Body:           (ঐচ্ছিক ডেটা, যেমন JSON)           |
-+--------------------------------------------------+
+```stack
+title: HTTP/1.1 Request-এর গঠন
+Request Line | METHOD SP PATH SP VERSION \r\n !accent
+Headers | Key: Value \r\n (প্রতি লাইনে একটি)
+Blank Line | \r\n (হেডার শেষ হওয়ার সংকেত) !muted
+Body | ঐচ্ছিক ডেটা (যেমন JSON) !hit
 ```
 
 1. Request Line (`GET /hello HTTP/1.1`): এতে HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`), রিকোয়েস্ট path (`/hello`), এবং প্রোটোকল ভার্সন (`HTTP/1.1`) থাকে।
@@ -87,17 +77,12 @@ Hello World
 
 এর গঠনও request-এর মতোই:
 
-```text
-+--------------------------------------------------+
-| Status Line:    VERSION SP CODE SP REASON \r\n   |
-+--------------------------------------------------+
-| Headers:        Key: Value \r\n                  |
-|                 Key: Value \r\n                  |
-+--------------------------------------------------+
-| Blank Line:     \r\n                             |
-+--------------------------------------------------+
-| Body:           Hello World                      |
-+--------------------------------------------------+
+```stack
+title: HTTP/1.1 Response-এর গঠন
+Status Line | VERSION SP CODE SP REASON \r\n !accent
+Headers | Key: Value \r\n (Content-Type, Content-Length)
+Blank Line | \r\n (হেডার ও body আলাদা করে) !muted
+Body | Hello World !hit
 ```
 
 1. Status Line (`HTTP/1.1 200 OK`): এতে HTTP ভার্সন, ৩ অঙ্কের status code, এবং ছোট একটা reason phrase থাকে। প্রথম অঙ্ক অনুযায়ী status code-গুলো ভাগ করা হয়:

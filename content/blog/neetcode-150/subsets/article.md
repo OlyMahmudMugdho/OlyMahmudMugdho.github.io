@@ -53,14 +53,22 @@ When our index `i` reaches the end (`i >= len(nums)`), we have made a decision f
 
 For `nums = [1, 2, 3]`, every branch chooses whether to **include** or **exclude** the current number:
 
-```text
-                        []
-              /                    \
-           [1]                      []
-         /     \                  /     \
-     [1,2]     [1]             [2]       []
-     /   \     /  \           /   \     /  \
-[1,2,3] [1,2] [1,3] [1]    [2,3]  [2] [3]  []
+```tree
+[]
+  [1] | +1
+    [1,2] | +2
+      [1,2,3] !hit
+      [1,2] !hit
+    [1] | skip 2
+      [1,3] !hit
+      [1] !hit
+  [] | skip 1
+    [2] | +2
+      [2,3] !hit
+      [2] !hit
+    [] | skip 2
+      [3] !hit
+      [] !hit
 ```
 
 Every leaf at the bottom gives one unique subset!

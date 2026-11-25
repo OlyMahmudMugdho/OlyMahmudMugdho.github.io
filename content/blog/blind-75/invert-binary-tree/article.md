@@ -21,34 +21,38 @@ Inverting a binary tree means **swapping the left and right child of every node*
 
 ### Example 1
 
-```
-Input:
-        4
-      /   \
-     2     7
-    / \   / \
-   1   3 6   9
-
-Output:
-        4
-      /   \
-     7     2
-    / \   / \
-   9   6 3   1
+```tree
+title: Input
+4
+  2
+    1
+    3
+  7
+    6
+    9
+---
+title: Output
+4
+  7
+    9
+    6
+  2
+    3
+    1
 ```
 
 ### Example 2
 
-```
-Input:
-    2
-   / \
-  1   3
-
-Output:
-    2
-   / \
-  3   1
+```tree
+title: Input
+2
+  1
+  3
+---
+title: Output
+2
+  3
+  1
 ```
 
 ### Example 3
@@ -83,24 +87,28 @@ This makes recursion a perfect solution.
 
 Suppose we have the following tree:
 
-```
-        4
-      /   \
-     2     7
-    / \   / \
-   1   3 6   9
+```tree
+4
+  2
+    1
+    3
+  7
+    6
+    9
 ```
 
 ### Step 1
 
 Swap the children of node `4`.
 
-```
-        4
-      /   \
-     7     2
-    / \   / \
-   6   9 1   3
+```tree
+4 !accent
+  7
+    6
+    9
+  2
+    1
+    3
 ```
 
 Notice that the root is swapped, but the subtrees themselves are not inverted yet.
@@ -153,12 +161,14 @@ Swap its children.
 
 Now the entire tree becomes
 
-```
-        4
-      /   \
-     7     2
-    / \   / \
-   9   6 3   1
+```tree
+4 !hit
+  7 !hit
+    9 !hit
+    6 !hit
+  2 !hit
+    3 !hit
+    1 !hit
 ```
 
 This is exactly the expected answer.

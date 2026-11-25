@@ -22,12 +22,12 @@ A height-balanced binary tree is a binary tree in which the depth of the two sub
 
 # Example 1
 
-```text
-        3
-       / \
-      9   20
-         /  \
-        15   7
+```tree
+3
+  9
+  20
+    15
+    7
 ```
 
 Output:
@@ -42,14 +42,14 @@ At node `3`, left height is `1` and right height is `2` (`|1 - 2| = 1 <= 1`), an
 
 # Example 2
 
-```text
-          1
-         / \
-        2   2
-       / \
-      3   3
-     / \
-    4   4
+```tree
+1 : |3-1| = 2 !pruned
+  2
+    3
+      4
+      4
+    3
+  2
 ```
 
 Output:
@@ -102,12 +102,12 @@ function getHeight(node)
 
 Using Example 1:
 
-```text
-        3
-       / \
-      9   20
-         /  \
-        15   7
+```tree
+3
+  9
+  20
+    15
+    7
 ```
 
 1. At root `3`:

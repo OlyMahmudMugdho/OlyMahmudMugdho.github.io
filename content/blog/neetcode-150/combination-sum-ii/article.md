@@ -62,15 +62,19 @@ Why? Because if you skip the first `1` and later pick the second `1`, you would 
 
 For `candidates = [1, 1, 2], target = 3` (after sorting):
 
-```text
-                          []
-               /                      \
-             [1]                       []  (skip ALL 1s!)
-           /     \                    /   \
-       [1,1]     [1]                [2]    []
-       /   \     /  \              /   \
-  [1,1,2] [1,1] [1,2] [1]        ...   ...
-  (sum>3 X)    (HIT!)
+```tree
+[]
+  [1] | pick 1
+    [1,1] | pick 1
+      [1,1,2] : sum>3 !pruned
+      [1,1]
+    [1] | skip 1
+      [1,2] : HIT! !hit
+      [1]
+  [] | skip all 1s
+    [2] | pick 2
+      ... !muted
+    [] | skip 2
 ```
 
 Notice how the right branch from `[]` skips **both** `1`s and jumps straight to `2`, preventing a duplicate `[1, 2]`!

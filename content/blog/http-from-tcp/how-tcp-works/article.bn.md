@@ -24,9 +24,10 @@ IP address (যেমন `127.0.0.1` বা `93.184.216.34`) নেটওয়া�
 
 অপারেটিং সিস্টেম প্রতিটা TCP connection-কে চারটা মান দিয়ে আলাদা করে চেনে:
 
-```text
-(Client IP, Client Port)  <======>  (Server IP, Server Port)
-  127.0.0.1 : 54321                   127.0.0.1 : 8080
+```sequence
+title: TCP 4-Tuple Connection
+actors: Client : 127.0.0.1 : 54321 | Server : 127.0.0.1 : 8080 !accent
+<-> (Client IP, Port) <-> (Server IP, Port) !hit
 ```
 
 প্রতিটা নতুন কানেকশনের জন্য ক্লায়েন্টের OS একটা খালি অস্থায়ী port (ephemeral port) বেছে নেয়। এই কারণে ব্রাউজার একই সার্ভারের `443` পোর্টে একাধিক কানেকশন খুলে রাখলেও ডেটা একে অন্যের সাথে মিশে যায় না।
@@ -35,19 +36,13 @@ IP address (যেমন `127.0.0.1` বা `93.184.216.34`) নেটওয়া�
 
 অ্যাপ্লিকেশনের ডেটা পাঠানোর আগে ক্লায়েন্ট আর সার্ভার কানেকশন তৈরি করে এবং শুরুর sequence number ঠিক করে নেয়। এটা তিনটা packet-এ সম্পন্ন হয়:
 
-```text
-Client                                      Server
-  |                                           |
-  |  1. SYN (seq=x)                           |
-  | ----------------------------------------> |
-  |                                           |
-  |  2. SYN-ACK (seq=y, ack=x+1)              |
-  | <---------------------------------------- |
-  |                                           |
-  |  3. ACK (ack=y+1)                         |
-  | ----------------------------------------> |
-  |                                           |
-  |======== Connection Established ===========|
+```sequence
+title: TCP Three-Way Handshake
+actors: Client | Server !accent
+-> 1. SYN (seq=x)
+<- 2. SYN-ACK (seq=y, ack=x+1)
+-> 3. ACK (ack=y+1)
+== Connection Established ==
 ```
 
 1. ক্লায়েন্ট নিজের শুরুর sequence number `x` সহ একটা `SYN` packet পাঠায়।
@@ -79,16 +74,13 @@ HTTP সার্ভার লেখার সময় একটা ব্যা�
 
 ডেটা পাঠানো শেষ হলে দুপক্ষ `FIN` packet দিয়ে কানেকশন বন্ধ করে:
 
-```text
-Client                                      Server
-  |  FIN                                      |
-  | ----------------------------------------> |
-  |  ACK                                      |
-  | <---------------------------------------- |
-  |  FIN                                      |
-  | <---------------------------------------- |
-  |  ACK                                      |
-  | ----------------------------------------> |
+```sequence
+title: TCP Four-Way Teardown
+actors: Client | Server !accent
+-> 1. FIN
+<- 2. ACK !muted
+<- 3. FIN
+-> 4. ACK !muted
 ```
 
 Go-তে `conn.Close()` কল করলে ওই socket-এর জন্য এই বন্ধ হওয়ার প্রক্রিয়া শুরু হয়।

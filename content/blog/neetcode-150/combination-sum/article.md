@@ -54,17 +54,23 @@ And we stop early if `sum(path) > target` or `i >= len(candidates)`.
 
 For `candidates = [2, 3, 6, 7], target = 7`, left branches **pick** `candidates[i]` (staying on `i`) and right branches **skip** `candidates[i]` (moving to `i + 1`):
 
-```text
-                             []
-                   /                    \
-                 [2]                     []
-              /       \                /    \
-           [2,2]      [2]            [3]     ... (skip 3 -> [6], [7])
-          /     \     /  \          /   \
-     [2,2,2]  [2,2,3] ...       [3,3]   [3]
-      /   \     (HIT!)           /  \
-[2,2,2,2] ...               [3,3,3] [3,6]
-(sum>7 X)                   (sum>7 X) (sum>7 X)
+```tree
+[]
+  [2] | pick 2
+    [2,2] | pick 2
+      [2,2,2] | pick 2
+        [2,2,2,2] : sum>7 !pruned
+        ... !muted
+      [2,2,3] : HIT! | skip 2 !hit
+    [2] | skip 2
+      ... !muted
+  [] | skip 2
+    [3] | pick 3
+      [3,3] | pick 3
+        [3,3,3] : sum>7 !pruned
+        [3,6] : sum>7 !pruned
+      [3] | skip 3
+    ... : skip 3 -> [6], [7] !muted
 ```
 
 - Paths with `sum == 7` (`[2, 2, 3]` and `[7]`) are saved.

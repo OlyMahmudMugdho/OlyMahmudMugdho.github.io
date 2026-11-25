@@ -24,28 +24,19 @@ TCP stream আর HTTP/1.1 মেসেজের গঠন বোঝার প�
 
 আমাদের প্রথম সার্ভার লুপটি এভাবে কাজ করে:
 
-```text
-net.Listen("tcp", ":8080")
-          |
-          v
-    +--> [ listener.Accept() ]  <--- ক্লায়েন্টের TCP handshake-এর জন্য অপেক্ষা করে
-    |          |
-    |          v
-    |    Print conn.RemoteAddr()
-    |          |
-    |          v
-    |    conn.Read(b)           <--- raw HTTP request-এর বাইট পড়ে
-    |          |
-    |          v
-    |    conn.Write(response)   <--- raw HTTP response-এর বাইট পাঠায়
-    |          |
-    |          v
-    |    conn.Close()           <--- TCP কানেকশন বন্ধ করে
-    |          |
-    +----------+ (পরবর্তী কানেকশনের জন্য অপেক্ষা)
+```flow
+title: TCP HTTP সার্ভার লুপ
+net.Listen("tcp", ":8080") !accent
+@loop-start
+listener.Accept() : ক্লায়েন্টের TCP handshake-এর অপেক্ষা !hit
+Print conn.RemoteAddr()
+conn.Read(b) : raw HTTP request-এর বাইট পড়ে
+conn.Write(response) : raw HTTP response-এর বাইট পাঠায়
+conn.Close() : TCP কানেকশন বন্ধ করে !muted
+@loop-end: পরবর্তী কানেকশন
 ```
 
-## কোড (`main.go`)
+## কোড (main.go)
 
 মডিউল তৈরি করার পর (`go mod init github.com/OlyMahmudMugdho/ant`), আমাদের প্রাথমিক `main.go`:
 
@@ -94,7 +85,7 @@ func main() {
 }
 ```
 
-## `main.go` কোড বিশ্লেষণ
+## main.go কোড বিশ্লেষণ
 
 ### পোর্ট 8080-এ লিসেন করা
 
@@ -147,7 +138,7 @@ conn.Close()
 
 এখানে HTTP/1.1 রেসপন্স স্ট্রিং তৈরি করে byte slice হিসেবে `conn`-এ লেখা হয়েছে, এবং শেষে `conn.Close()` দিয়ে কানেকশন বন্ধ করা হয়েছে।
 
-## `curl` দিয়ে টেস্ট করা
+## curl দিয়ে টেস্ট করা
 
 একটা টার্মিনালে সার্ভার চালান:
 

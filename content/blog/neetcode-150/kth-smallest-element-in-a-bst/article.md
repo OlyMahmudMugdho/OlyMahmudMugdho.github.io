@@ -20,12 +20,12 @@ Given the `root` of a binary search tree, and an integer `k`, return the `k`-th 
 
 # Example 1
 
-```text
-      3
-     / \
-    1   4
-     \
-      2
+```tree
+3
+  1 : 1st !hit
+    _ !ghost
+    2
+  4
 ```
 
 Input: `k = 1`
@@ -36,14 +36,14 @@ Output: `1`
 
 # Example 2
 
-```text
-        5
-       / \
-      3   6
-     / \
-    2   4
-   /
-  1
+```tree
+5
+  3 : 3rd !hit
+    2
+      1
+      _ !ghost
+    4
+  6
 ```
 
 Input: `k = 3`

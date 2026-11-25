@@ -26,10 +26,10 @@ A valid BST is defined as follows:
 
 # Example 1
 
-```text
-    2
-   / \
-  1   3
+```tree
+2 !hit
+  1 !hit
+  3 !hit
 ```
 
 Output: `true`
@@ -38,12 +38,12 @@ Output: `true`
 
 # Example 2
 
-```text
-      5
-     / \
-    1   4
-       / \
-      3   6
+```tree
+5
+  1
+  4 : 4 < 5 !pruned
+    3
+    6
 ```
 
 Output: `false` (Node `4` is in the right subtree of `5`, but `4 < 5`).
@@ -56,12 +56,12 @@ A common mistake is only checking `root.left.val < root.val < root.right.val` lo
 
 Why isn't that enough? Consider:
 
-```text
-      5
-     / \
-    1   7
-       / \
-      3   8
+```tree
+5
+  1
+  7
+    3 : 3 < 5 !pruned
+    8
 ```
 
 Locally, `3 < 7 < 8` looks fine — **but `3` is in the right subtree of `5`**, so `3` violates `3 > 5`!

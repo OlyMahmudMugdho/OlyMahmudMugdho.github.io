@@ -22,12 +22,14 @@ Return the values of the nodes you can see ordered from **top to bottom**.
 
 # Example 1
 
-```text
-        1            <---
-       / \
-      2   3          <---
-       \   \
-        5   4        <---
+```tree
+1 : seen !hit
+  2
+    _ !ghost
+    5
+  3 : seen !hit
+    _ !ghost
+    4 : seen !hit
 ```
 
 Output:
@@ -40,12 +42,12 @@ Output:
 
 # Example 2
 
-```text
-        1            <---
-       / \
-      2   3          <---
-     /
-    4                <---
+```tree
+1 : seen !hit
+  2
+    4 : seen !hit
+    _ !ghost
+  3 : seen !hit
 ```
 
 Output:
@@ -102,12 +104,14 @@ function rightSideView(root)
 
 Using Example 1:
 
-```text
-        1
-       / \
-      2   3
-       \   \
-        5   4
+```tree
+1 !hit
+  2
+    _ !ghost
+    5
+  3 !hit
+    _ !ghost
+    4 !hit
 ```
 
 Initially: `queue = [1]`, `result = []`.

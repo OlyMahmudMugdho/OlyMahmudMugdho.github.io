@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, ArrowRight, BookOpen, Clock, GraduationCap, Layers, ChevronRight, Languages } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 interface CoursePageProps {
     params: {
@@ -31,11 +32,13 @@ export async function generateMetadata({ params }: CoursePageProps): Promise<Met
                 type: "website",
                 title: course.title,
                 description: course.description,
+                ...(course.coverImage ? { images: [{ url: course.coverImage, alt: course.title }] } : {}),
             },
             twitter: {
-                card: "summary",
+                card: course.coverImage ? "summary_large_image" : "summary",
                 title: course.title,
                 description: course.description,
+                ...(course.coverImage ? { images: [course.coverImage] } : {}),
             },
         }
     } catch {
@@ -157,19 +160,33 @@ export default async function CourseDetailPage({ params }: CoursePageProps) {
                             </div>
                         </div>
 
-                        {/* Geometric medallion on the right */}
-                        <div className="hidden md:flex shrink-0 items-center justify-center">
-                            <div
-                                className="h-44 w-44 flex items-center justify-center shadow-lg"
-                                style={{
-                                    backgroundColor: theme.medallionHex,
-                                    clipPath:
-                                        "polygon(50% 0%, 75% 7%, 93% 25%, 100% 50%, 93% 75%, 75% 93%, 50% 100%, 25% 93%, 7% 75%, 0% 50%, 7% 25%, 25% 7%)",
-                                }}
-                            >
-                                <Icon className="h-16 w-16 stroke-[1.6]" style={{ color: theme.iconHex }} />
+                        {/* Cover image or geometric medallion on the right */}
+                        {course.coverImage ? (
+                            <div className="w-full md:w-80 lg:w-96 shrink-0">
+                                <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-white/20 shadow-lg">
+                                    <Image
+                                        src={course.coverImage}
+                                        alt={course.title}
+                                        fill
+                                        className="object-cover"
+                                        priority
+                                    />
+                                </div>
                             </div>
-                        </div>
+                        ) : (
+                            <div className="hidden md:flex shrink-0 items-center justify-center">
+                                <div
+                                    className="h-44 w-44 flex items-center justify-center shadow-lg"
+                                    style={{
+                                        backgroundColor: theme.medallionHex,
+                                        clipPath:
+                                            "polygon(50% 0%, 75% 7%, 93% 25%, 100% 50%, 93% 75%, 75% 93%, 50% 100%, 25% 93%, 7% 75%, 0% 50%, 7% 25%, 25% 7%)",
+                                    }}
+                                >
+                                    <Icon className="h-16 w-16 stroke-[1.6]" style={{ color: theme.iconHex }} />
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </section>

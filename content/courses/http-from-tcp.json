@@ -2,6 +2,7 @@
   "title": "HTTP from TCP in Go",
   "description": "How TCP and HTTP work on the wire, followed by building an HTTP/1.1 server over raw TCP sockets in Go with Project Ant.",
   "level": "Intermediate",
+  "coverImage": "https://res.cloudinary.com/dnmubeloc/image/upload/v1795591340/blog/a3f95772-7ff8-45c9-9dcd-1cd22bab4d29_ttvyc5.webp",
   "tags": ["networking", "tcp", "http", "golang", "backend"],
   "units": [
     {

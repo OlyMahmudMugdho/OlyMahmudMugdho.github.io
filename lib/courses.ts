@@ -21,6 +21,7 @@ export interface CourseDefinition {
     title: string;
     description: string;
     level?: string;
+    coverImage?: string;
     tags?: string[];
     units: CourseUnit[];
 }
@@ -41,6 +42,7 @@ export interface CourseSummary {
     title: string;
     description: string;
     level?: string;
+    coverImage?: string;
     tags: string[];
     unitCount: number;
     lessonCount: number;
@@ -90,6 +92,7 @@ export function getAllCourses(): CourseSummary[] {
             title: data.title,
             description: data.description,
             level: data.level,
+            coverImage: data.coverImage,
             tags: Array.isArray(data.tags) ? data.tags : [],
             unitCount: units.length,
             lessonCount,
@@ -155,6 +158,7 @@ export async function getCourseBySlug(slug: string): Promise<CourseDetail> {
         title: data.title,
         description: data.description,
         level: data.level,
+        coverImage: data.coverImage,
         tags: Array.isArray(data.tags) ? data.tags : [],
         unitCount: resolvedUnits.length,
         lessonCount: lessonCounter,

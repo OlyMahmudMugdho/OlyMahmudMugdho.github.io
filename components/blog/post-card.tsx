@@ -16,76 +16,76 @@ export function PostCard({ post }: PostCardProps) {
     const { theme, emoji } = getPostVisual(post.slug)
 
     return (
-        <Card className="flex flex-col h-full overflow-hidden rounded-none hover:shadow-lg transition-shadow duration-300 dark:bg-background/50">
-            <Link href={`/blog/${post.slug}`} className="block relative aspect-video w-full overflow-hidden rounded-none group">
-                {post.coverImage ? (
-                    <Image
-                        src={post.coverImage}
-                        alt={post.title}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                ) : (
-                    <div
-                        className="w-full h-full flex items-center justify-center"
-                        style={{ backgroundColor: theme.bannerHex }}
-                    >
+        <Link href={`/blog/${post.slug}`} className="group block h-full">
+            <Card className="flex flex-col h-full overflow-hidden rounded-none hover:shadow-lg transition-shadow duration-300 dark:bg-background/50">
+                <div className="block relative aspect-video w-full overflow-hidden rounded-none">
+                    {post.coverImage ? (
+                        <Image
+                            src={post.coverImage}
+                            alt={post.title}
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                    ) : (
                         <div
-                            className="h-24 w-24 flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
-                            style={{
-                                backgroundColor: theme.medallionHex,
-                                clipPath:
-                                    "polygon(50% 0%, 75% 7%, 93% 25%, 100% 50%, 93% 75%, 75% 93%, 50% 100%, 25% 93%, 7% 75%, 0% 50%, 7% 25%, 25% 7%)",
-                            }}
+                            className="w-full h-full flex items-center justify-center"
+                            style={{ backgroundColor: theme.bannerHex }}
                         >
-                            <span className="text-4xl select-none" role="img" aria-label={post.title}>
-                                {emoji}
-                            </span>
+                            <div
+                                className="h-24 w-24 flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
+                                style={{
+                                    backgroundColor: theme.medallionHex,
+                                    clipPath:
+                                        "polygon(50% 0%, 75% 7%, 93% 25%, 100% 50%, 93% 75%, 75% 93%, 50% 100%, 25% 93%, 7% 75%, 0% 50%, 7% 25%, 25% 7%)",
+                                }}
+                            >
+                                <span className="text-4xl select-none" role="img" aria-label={post.title}>
+                                    {emoji}
+                                </span>
+                            </div>
                         </div>
+                    )}
+                    <div className="absolute top-3 left-3">
+                        <Badge variant="secondary" className="backdrop-blur-sm bg-background/80">
+                            {post.category}
+                        </Badge>
                     </div>
-                )}
-                <div className="absolute top-3 left-3">
-                    <Badge variant="secondary" className="backdrop-blur-sm bg-background/80">
-                        {post.category}
-                    </Badge>
                 </div>
-            </Link>
 
-            <CardHeader className="flex-1 pb-2">
-                <Link href={`/blog/${post.slug}`} className="hover:text-primary transition-colors">
-                    <h3 className="text-xl font-bold leading-tight line-clamp-2">
+                <CardHeader className="flex-1 pb-2">
+                    <h3 className="text-xl font-bold leading-tight line-clamp-2 group-hover:text-primary transition-colors">
                         {post.title}
                     </h3>
-                </Link>
-            </CardHeader>
+                </CardHeader>
 
-            <CardContent className="pb-4">
-                <p className="text-muted-foreground text-base line-clamp-3">
-                    {post.excerpt}
-                </p>
-            </CardContent>
+                <CardContent className="pb-4">
+                    <p className="text-muted-foreground text-base line-clamp-3">
+                        {post.excerpt}
+                    </p>
+                </CardContent>
 
-            <CardFooter className="flex items-center justify-between text-muted-foreground text-xs pt-0 border-t mt-auto">
-                <div className="flex items-center gap-1 pt-4">
-                    <CalendarIcon className="h-3 w-3" />
-                    <span>
-                        {(() => {
-                            try {
-                                const d = new Date(post.date);
-                                if (isNaN(d.getTime())) return "Invalid Date";
-                                return format(d, "MMM d, yyyy");
-                            } catch (e) {
-                                return "Invalid Date";
-                            }
-                        })()}
-                    </span>
-                </div>
-                <div className="flex items-center gap-1 pt-4">
-                    <ClockIcon className="h-3 w-3" />
-                    <span>{post.readingTime}</span>
-                </div>
-            </CardFooter>
-        </Card>
+                <CardFooter className="flex items-center justify-between text-muted-foreground text-xs pt-0 border-t mt-auto">
+                    <div className="flex items-center gap-1 pt-4">
+                        <CalendarIcon className="h-3 w-3" />
+                        <span>
+                            {(() => {
+                                try {
+                                    const d = new Date(post.date);
+                                    if (isNaN(d.getTime())) return "Invalid Date";
+                                    return format(d, "MMM d, yyyy");
+                                } catch (e) {
+                                    return "Invalid Date";
+                                }
+                            })()}
+                        </span>
+                    </div>
+                    <div className="flex items-center gap-1 pt-4">
+                        <ClockIcon className="h-3 w-3" />
+                        <span>{post.readingTime}</span>
+                    </div>
+                </CardFooter>
+            </Card>
+        </Link>
     )
 }
 export function PostCardSkeleton() {

@@ -2,6 +2,7 @@
   "title": "NeetCode 150: DSA & Coding Interview Prep",
   "description": "A structured, beginner-friendly guide to core Data Structures and Algorithms problems from NeetCode 150, with step-by-step dry runs, Python solutions, and Bengali translations.",
   "level": "Beginner to Intermediate",
+  "coverImage": "https://res.cloudinary.com/dnmubeloc/image/upload/v1795591183/blog/7ca00f6d-b057-4d4d-ba5c-fbc7ba5eaf62_dfndur.webp",
   "tags": ["dsa", "algorithms", "python", "interview"],
   "units": [
     {
